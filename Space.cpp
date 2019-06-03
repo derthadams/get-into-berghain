@@ -48,7 +48,7 @@ void Space::setWest(Space* west)
     neighbors[3] = west;
 }
 
-std::string getName()
+std::string Space::getName()
 {
     return name;
 }
