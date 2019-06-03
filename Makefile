@@ -17,7 +17,7 @@ Game.o: Game.hpp Club.hpp Street.hpp Store.hpp getMenuChoice.hpp
 
 Club.o: Club.hpp
 
-Item.o Item.hpp
+Item.o: Item.hpp
 
 ShoppingBag.o: ShoppingBag.hpp
 
