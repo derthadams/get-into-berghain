@@ -3,7 +3,6 @@
 //
 
 #include "Store.hpp"
-#include "Space.hpp"
 
 Store::Store(std::string name) : Space::Space(name)
 {
