@@ -39,31 +39,48 @@ Game::Game()
     here->getWest()->setEast(here);
     moveNorth();
     moveEast();
+    temp = nullptr;
 }
 
 Game::~Game()
 {
-
+    if (here)
+    {
+        delete here;
+        here = nullptr;
+    }
 }
 
 void Game::moveNorth()
 {
-    here = here->getNorth();
+    if (here->getNorth())
+    {
+        here = here->getNorth();
+    }
 }
 
 void Game::moveEast()
 {
-    here = here->getEast();
+    if (here->getEast())
+    {
+        here = here->getEast();
+    }
 }
 
 void Game::moveSouth()
 {
-    here = here->getSouth();
+    if (here->getSouth())
+    {
+        here = here->getSouth();
+    }
 }
 
 void Game::moveWest()
 {
-    here = here->getWest();
+    if (here->getWest())
+    {
+        here = here->getWest();
+    }
 }
 
 void Game::play()

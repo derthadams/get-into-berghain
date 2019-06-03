@@ -8,6 +8,18 @@ Space::Space(std::string name) : name(name)
 {
 }
 
+Space::~Space()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        if (neighbors[i])
+        {
+            delete neighbors[i];
+            neighbors[i] = nullptr;
+        }
+    }
+}
+
 Space* Space::getNorth()
 {
     return neighbors[0];

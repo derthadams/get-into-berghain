@@ -15,6 +15,7 @@ private:
     bool visited = false;
 public:
     explicit Space(std::string name);
+    ~Space();
     Space* getNorth();
     Space* getEast();
     Space* getSouth();
