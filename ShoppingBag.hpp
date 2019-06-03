@@ -10,7 +10,7 @@
 class ShoppingBag
 {
 private:
-    std::array <Item*, 5> bag{nullptr, nullptr, nullptr, nullptr, nullptr};
+    std::array <Item*, 5> bag = {nullptr};
 };
 
 
