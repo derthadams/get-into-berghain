@@ -10,13 +10,29 @@ Space::Space(std::string name) : name(name)
 
 Space::~Space()
 {
-    for (int i = 0; i < 4; i++)
+    if (neighbors[0])
     {
-        if (neighbors[i])
-        {
-            delete neighbors[i];
-            neighbors[i] = nullptr;
-        }
+        neighbors[0]->setSouth(nullptr);
+        delete neighbors[0];
+        neighbors[0] = nullptr;
+    }
+    if (neighbors[1])
+    {
+        neighbors[1]->setWest(nullptr);
+        delete neighbors[1];
+        neighbors[1] = nullptr;
+    }
+    if (neighbors[2])
+    {
+        neighbors[2]->setNorth(nullptr);
+        delete neighbors[2];
+        neighbors[2] = nullptr;
+    }
+    if (neighbors[3])
+    {
+        neighbors[3]->setEast(nullptr);
+        delete neighbors[3];
+        neighbors[3] = nullptr;
     }
 }
 

@@ -13,5 +13,4 @@ private:
     std::array <Item*, 5> bag = {{nullptr}};
 };
 
-
 #endif //INC_162_FINAL_PROJECT_SHOPPINGBAG_HPP
