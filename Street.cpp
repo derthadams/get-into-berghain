@@ -8,3 +8,8 @@ Street::Street(std::string name) : Space::Space(name)
 {
     type = street;
 }
+
+Compass Street::scene(int time, int& wallet, Outfit* outfit)
+{
+
+}

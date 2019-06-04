@@ -13,6 +13,7 @@ private:
     std::string incompleteOutfitIntroText;
 public:
     Club(std::string name);
+    Compass scene(int time, int& wallet, Outfit* outfit) override;
 };
 
 

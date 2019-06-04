@@ -12,6 +12,7 @@ class Street : public Space
 {
 public:
     Street(std::string name);
+    Compass scene(int time, int& wallet, Outfit* outfit) override;
 };
 
 

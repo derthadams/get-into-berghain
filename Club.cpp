@@ -8,3 +8,8 @@ Club::Club(std::string name) : Space::Space(name)
 {
     type = club;
 }
+
+Compass Club::scene(int time, int& wallet, Outfit* outfit)
+{
+
+}
