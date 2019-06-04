@@ -5,8 +5,10 @@
 #ifndef INC_162_FINAL_PROJECT_SPACE_HPP
 #define INC_162_FINAL_PROJECT_SPACE_HPP
 #include <string>
+#include "Outfit.hpp"
 
 enum SpaceType {club, store, street};
+enum Compass {North = 0, East, South, West};
 
 class Space
 {
@@ -20,7 +22,7 @@ protected:
     SpaceType type;
 public:
     explicit Space(std::string name);
-    ~Space();
+    virtual ~Space();
     Space* getNorth();
     Space* getEast();
     Space* getSouth();
@@ -31,7 +33,8 @@ public:
     void setWest(Space* west);
     std::string getName();
     SpaceType getType();
-    void intro();
+    virtual void intro();
+    virtual Compass scene(int time, int& wallet, Outfit* outfit) = 0;
 };
 
 
