@@ -19,7 +19,7 @@ Club.o: Club.hpp
 
 Item.o: Item.hpp
 
-ShoppingBag.o: ShoppingBag.hpp
+Outfit.o: Outfit.hpp Item.hpp
 
 Space.o: Space.hpp
 
