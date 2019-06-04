@@ -9,6 +9,8 @@
 
 class Club : public Space
 {
+private:
+    std::string incompleteOutfitIntroText;
 public:
     Club(std::string name);
 };
