@@ -6,5 +6,5 @@
 
 Club::Club(std::string name) : Space::Space(name)
 {
-
+    type = club;
 }

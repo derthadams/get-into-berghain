@@ -6,5 +6,5 @@
 
 Street::Street(std::string name) : Space::Space(name)
 {
-
+    type = street;
 }

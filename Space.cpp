@@ -1,7 +1,7 @@
 //
 // Created by Derth Adams on 2019-06-03.
 //
-
+#include <iostream>
 #include "Space.hpp"
 
 Space::Space(std::string name) : name(name)
@@ -80,3 +80,22 @@ std::string Space::getName()
 {
     return name;
 }
+
+SpaceType Space::getType()
+{
+    return type;
+}
+
+void Space::intro()
+{
+    if (visited)
+    {
+        std::cout << altIntroText;
+    }
+    else
+    {
+        std::cout << introText;
+    }
+    std::cout  << "\n\n";
+}
+

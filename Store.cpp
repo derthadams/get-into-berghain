@@ -6,5 +6,5 @@
 
 Store::Store(std::string name) : Space::Space(name)
 {
-
+    type = store;
 }
