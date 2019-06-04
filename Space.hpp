@@ -8,20 +8,20 @@
 #include "Outfit.hpp"
 
 enum SpaceType {club, store, street};
-enum Compass {North = 0, East, South, West};
+enum NextMove {North = 0, East, South, West, DriveNorth, DriveSouth, Exit};
 
 class Space
 {
-private:
+protected:
     Space* neighbors[4]{nullptr};
     std::string name;
-    bool visited = false;
     std::string introText;
     std::string altIntroText;
-protected:
     SpaceType type;
+    bool visited = false;
 public:
-    explicit Space(std::string name);
+    explicit Space(std::string name, std::string introText,
+            std::string altIntroText);
     virtual ~Space();
     Space* getNorth();
     Space* getEast();
@@ -33,8 +33,8 @@ public:
     void setWest(Space* west);
     std::string getName();
     SpaceType getType();
-    virtual void intro();
-    virtual Compass scene(int time, int& wallet, Outfit* outfit) = 0;
+    virtual NextMove scene(int time, int& wallet, Outfit* outfit) = 0;
+    virtual void addItem(Item*);
 };
 
 

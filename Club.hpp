@@ -10,10 +10,14 @@
 class Club : public Space
 {
 private:
-    std::string incompleteOutfitIntroText;
+    std::string incompleteOutfitText;
+    std::string loseText;
+    std::string winText;
 public:
-    Club(std::string name);
-    Compass scene(int time, int& wallet, Outfit* outfit) override;
+    Club(std::string name, std::string introText, std::string altIntroText,
+            std::string incompleteOutfitText, std::string loseText,
+            std::string winText);
+    NextMove scene(int time, int& wallet, Outfit* outfit) override;
 };
 
 

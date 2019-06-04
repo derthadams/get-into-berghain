@@ -1,0 +1,59 @@
+Darkstore$
+The tiny shop is packed from the floor to the bright red ceiling with
+merchandise. The dominant color here is black, with a little red thrown in.
+The store owner Lucretia approaches you and says hello.$
+Lucretia looks up from the cash register and says,
+"Well hello again, how can I help you?"$
+Lucretia$
+She’s pale as a ghost with long black hair and is wearing a form-fitting
+black lace gown.$
+
+White satin Victorian lace-up scoop neck top
+lace-up top
+2
+45
+
+30
+10
+0
+0
+
+Skinny red tartan plaid wool pants
+tartan pants
+1
+65
+
+10
+30
+0
+0
+
+Studded black leather wristband
+leather wristband
+3
+25
+
+5
+25
+5
+0
+
+Ankle-length chunky black leather spiked platform boots
+spiked platform boots
+0
+65
+
+5
+25
+10
+0
+
+High-heeled black suede lace-up boots with ribbons and lace
+suede lace-up boots
+0
+50
+
+30
+10
+0
+0

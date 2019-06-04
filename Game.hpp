@@ -20,8 +20,7 @@ private:
     int wallet = 200;
     Outfit outfit;
     Space* here{nullptr};
-
-
+    bool gameActive = true;
 public:
     Game();
     ~Game();
@@ -29,10 +28,14 @@ public:
     void walkEast();
     void walkSouth();
     void walkWest();
-    void uberNorth();
-    void uberSouth();
+    void driveNorth();
+    void driveSouth();
     void play();
+    void playTest();
     void logLine();
+    Space* loadStore(std::string filename);
+    Space* loadClub(std::string filename);
+    Space* loadStreet(std::string filename);
 };
 
 

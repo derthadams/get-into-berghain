@@ -4,7 +4,9 @@
 #include <iostream>
 #include "Space.hpp"
 
-Space::Space(std::string name) : name(name)
+Space::Space(std::string name, std::string introText,
+             std::string altIntroText) : name(name), introText(introText),
+             altIntroText(altIntroText)
 {
 }
 
@@ -86,15 +88,7 @@ SpaceType Space::getType()
     return type;
 }
 
-void Space::intro()
+void Space::addItem(Item*)
 {
-    if (visited)
-    {
-        std::cout << altIntroText;
-    }
-    else
-    {
-        std::cout << introText;
-    }
-    std::cout  << "\n\n";
+
 }

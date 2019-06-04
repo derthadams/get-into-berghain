@@ -17,10 +17,14 @@ private:
     std::string clerkName;
     std::string clerkDescription;
 public:
-    Store(std::string name);
+    Store(std::string name, std::string introText,
+          std::string altIntroText, std::string clerkName,
+          std::string clerkDescription);
+    ~Store() override;
     std::string getClerkName();
     std::string getClerkDescription();
-    Compass scene(int time, int& wallet, Outfit* outfit) override;
+    void addItem(Item* item) override;
+    NextMove scene(int time, int& wallet, Outfit* outfit) override;
 };
 
 
