@@ -11,19 +11,28 @@
 class Game
 {
 private:
-    int time = 120;
+    const int START_HOUR = 19;
+    const int END_HOUR = 21;
+    const int TIME_LIMIT = 120;
+    const int SHORT_TIME_STEP = 5;
+    const int LONG_TIME_STEP = 20;
+    int time = 0;
     int wallet = 200;
+    Outfit outfit;
     Space* here{nullptr};
 
 
 public:
     Game();
     ~Game();
-    void moveNorth();
-    void moveEast();
-    void moveSouth();
-    void moveWest();
+    void walkNorth();
+    void walkEast();
+    void walkSouth();
+    void walkWest();
+    void uberNorth();
+    void uberSouth();
     void play();
+    void logLine();
 };
 
 
