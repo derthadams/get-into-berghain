@@ -15,41 +15,38 @@ Game::Game()
 {
     Space* temp = nullptr;
     Space* last = nullptr;
-//    here = new Club("The front of Berghain", "Intro", "AltIntro", "Incomplete",
-//            "Lose", "Win");
+
     here = loadClub("berghain.txt");
-    // Load function for Club
-    temp = new Street("Warschauer Strasse", "", "");
+
+    temp = loadStreet("warschauer.txt");
     here->setWest(temp);
     here->getWest()->setEast(here);
-    // Load function for Street
     walkWest();
-//    temp = new Store("Darkstore");
+
     temp = loadStore("darkstore.txt");
     here->setNorth(temp);
     here->getNorth()->setSouth(here);
-    // Load function for Store
-    temp = new Store("Savage-Wear", "", "", "", "");
+
+    temp = loadStore("savagewear.txt");
     here->setWest(temp);
     here->getWest()->setEast(here);
-    // Load function for Store
-    temp = new Street("Kreuzberg Strasse", "", "");
+
+    temp = loadStreet("kreuzberg.txt")
     here->setSouth(temp);
     here->getSouth()->setNorth(here);
-    // Load function for Street
     walkSouth();
-    temp = new Store("The Gap", "", "", "", "");
+
+    temp = loadStore("knokstore.txt");
     here->setEast(temp);
     here->getEast()->setWest(here);
-    // Load function for Store
-    temp = new Store("Prada", "", "", "", "");
+
+    temp = loadStore("slacks.txt");
     here->setSouth(temp);
     here->getSouth()->setNorth(here);
-    // Load function for Store
-    temp = new Store("TJ Maxx", "", "", "", "");
+
+    temp = loadStore("pinkcadillac.txt");
     here->setWest(temp);
     here->getWest()->setEast(here);
-    // Load function for Store
     walkNorth();
     walkEast();
     temp = nullptr;
@@ -328,5 +325,19 @@ Space* Game::loadClub(std::string filename)
 
 Space* Game::loadStreet(std::string filename)
 {
+    std::string name,
+                introText,
+                altIntroText;
+    Space* tempStreet;
 
+    std::ifstream inputFile(filename);
+
+    std::getline(inputFile, name, '$');
+    std::getline(inputFile, introText, '$');
+    introText.erase(introText.begin());
+    std::getline(inputFile, altIntroText, '$');
+    altIntroText.erase(altIntroText.begin());
+
+    tempStreet = new Street (name, introText, altIntroText);
+    return tempStreet;
 }
