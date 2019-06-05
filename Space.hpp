@@ -8,7 +8,7 @@
 #include "Outfit.hpp"
 
 enum SpaceType {club, store, street};
-enum NextMove {North = 0, East, South, West, DriveNorth, DriveSouth, Exit};
+enum NextMove {North = 0, East, South, West, DriveNorth, DriveSouth, Exit, Home};
 
 class Space
 {

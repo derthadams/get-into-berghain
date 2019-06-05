@@ -86,7 +86,7 @@ NextMove Store::scene(int time, int& wallet, Outfit* outfit)
                          "Let's head back to Berghain\n"
                          "and try our luck!\"\n\n";
             choice = getMenuChoice("1. Exit store\n", 1, 1);
-            choice = static_cast<int>(inventory.size() + 2);
+            return Home;
         }
         else
         {

@@ -20,6 +20,7 @@ private:
     int wallet = 200;
     Outfit outfit;
     Space* here{nullptr};
+    Space* home{nullptr};
     bool gameActive = true;
 public:
     Game();

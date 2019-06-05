@@ -17,6 +17,7 @@ Game::Game()
     Space* last = nullptr;
 
     here = loadClub("berghain.txt");
+    home = here;
 
     temp = loadStreet("warschauer.txt");
     here->setWest(temp);
@@ -215,6 +216,10 @@ void Game::play()
             case Exit:
             {
                 return;
+            }
+            case Home:
+            {
+                here = home;
             }
         }
     }
