@@ -2,6 +2,7 @@
 // Created by Derth Adams on 2019-06-03.
 //
 #include <iostream>
+#include <vector>
 #include "Street.hpp"
 #include "getMenuChoice.hpp"
 
@@ -23,18 +24,25 @@ NextMove Street::scene(int time, int& wallet, Outfit* outfit)
     }
     std::cout  << "\n\n";
     visited = true;
-    for (int i = 1; i <=4; i++)
+    int numItems = 0;
+    std::vector<int> menuMap;
+    for (int i = 0; i < 4; i++)
     {
-        if (neighbors[i-1]->getType() == street)
+        if (neighbors[i])
         {
-            std::cout << i << ". Walk to ";
+            numItems++;
+            menuMap.push_back(i);
+            if (neighbors[i]->getType() == street)
+            {
+                std::cout << numItems << ". Walk to ";
+            }
+            else
+            {
+                std::cout << numItems << ". Visit ";
+            }
+            std::cout << neighbors[i]->getName() << "\n";
         }
-        else
-        {
-            std::cout << i << ". Visit ";
-        }
-        std::cout << neighbors[i-1]->getName() << "\n";
     }
-    int choice = getMenuChoice("", 1, 4);
-    return static_cast<NextMove>(choice - 1);
+    int choice = getMenuChoice("", 1, numItems);
+    return static_cast<NextMove>(menuMap[choice - 1]);
 }
