@@ -3,6 +3,8 @@
 //
 
 #include <iostream>
+#include <iomanip>
+#include <utility>
 #include "Store.hpp"
 #include "getMenuChoice.hpp"
 
@@ -34,6 +36,17 @@ std::string Store::getClerkDescription()
     return clerkDescription;
 }
 
+int Store::getExitIndex()
+{
+    for (int j = 0; j < 4; j++)
+    {
+        if (neighbors[j])
+        {
+            return j;
+        }
+    }
+}
+
 NextMove Store::scene(int time, int& wallet, Outfit* outfit)
 {
     if (visited)
@@ -47,23 +60,43 @@ NextMove Store::scene(int time, int& wallet, Outfit* outfit)
     }
     std::cout  << "\n\n";
     visited = true;
-    std::cout << "A few items catch your eye:\n\n";
+
+    std::cout << "A few items catch your eye:\n";
+    int categoryIndex = -1;
+    std::string categories[] = {"Shoes", "Bottoms", "Tops", "Accessories"};
     for (int i = 0; i < inventory.size(); i++)
     {
-        std::cout << "\u25AA   " << inventory.at(i)->name<< "\n";
+        if (inventory.at(i)->category != categoryIndex)
+        {
+            categoryIndex++;
+            std::cout << "\n** " << categories[categoryIndex] << " **\n";
+        }
+        std::cout << i + 1 << ".   " << std::left << std::setw(62)
+                  << inventory.at(i)->name << std::setw(5)
+                  << "   (\u20AC" << inventory.at(i)->price << ")\n";
     }
     std::cout << "\n";
-    int exitIndex;
-    for (int j = 0; j < 4; j++)
+
+    int choice = 0;
+    while (choice != inventory.size() + 2)
     {
-        if (neighbors[j])
+        std::cout << "What would you like to do?\n\n";
+        std::cout << "To try on an item, enter the item's number.\n";
+        std::cout << inventory.size() + 1
+                  << ". Review what you're wearing now\n";
+        std::cout << inventory.size() + 2
+                  << ". Exit store\n";
+        choice = getMenuChoice("", 1, static_cast<int>(inventory.size()) + 2);
+        if (choice <= inventory.size())
         {
-            exitIndex = j;
+            // Try on inventory.at(i)
+        }
+        else if (choice == inventory.size() + 1)
+        {
+            outfit->areWearing();
         }
     }
-    std::cout << "1. Exit store\n";
-    int choice = getMenuChoice("", 1, 1);
-    return static_cast<NextMove>(exitIndex);
+    return static_cast<NextMove>(getExitIndex());
 }
 
 void Store::addItem(Item* item)
