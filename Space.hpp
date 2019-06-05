@@ -35,6 +35,7 @@ public:
     SpaceType getType();
     virtual NextMove scene(int time, int& wallet, Outfit* outfit) = 0;
     virtual void addItem(Item*);
+    virtual bool isOpen(int time);
 };
 
 

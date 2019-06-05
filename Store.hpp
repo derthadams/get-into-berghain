@@ -25,6 +25,7 @@ public:
     std::string getClerkDescription();
     void addItem(Item* item) override;
     NextMove scene(int time, int& wallet, Outfit* outfit) override;
+    bool isOpen(int time) override;
 };
 
 

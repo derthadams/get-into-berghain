@@ -70,3 +70,8 @@ void Store::addItem(Item* item)
 {
     inventory.push_back(item);
 }
+
+bool Store::isOpen(int time)
+{
+    return (time <= 120);
+}

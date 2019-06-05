@@ -16,31 +16,57 @@ NextMove Street::scene(int time, int& wallet, Outfit* outfit)
 {
     if (visited)
     {
-        std::cout << altIntroText;
+        if (time <= 120)
+        {
+            std::cout << altIntroText;
+        }
+        else
+        {
+            std::cout << "The stores are closed.\n";
+        }
     }
     else
     {
-        std::cout << introText;
+        if (time <= 120)
+        {
+            std::cout << introText;
+        }
+        else
+        {
+            std::cout << "The stores are closed.\n";
+        }
     }
     std::cout  << "\n\n";
     visited = true;
-    int numItems = 0;
+
+    int numItems = 1;
     std::vector<int> menuMap;
     for (int i = 0; i < 4; i++)
     {
         if (neighbors[i])
         {
-            numItems++;
-            menuMap.push_back(i);
             if (neighbors[i]->getType() == street)
             {
                 std::cout << numItems << ". Walk to ";
+                std::cout << neighbors[i]->getName() << "\n";
+                menuMap.push_back(i);
+                numItems++;
             }
-            else
+            else if (neighbors[i]->getType() == store &&
+                     neighbors[i]->isOpen(time))
             {
                 std::cout << numItems << ". Visit ";
+                std::cout << neighbors[i]->getName() << "\n";
+                menuMap.push_back(i);
+                numItems++;
             }
-            std::cout << neighbors[i]->getName() << "\n";
+            else if (neighbors[i]->getType() == club)
+            {
+                std::cout << numItems << ". Go back to Berghain\n";
+                menuMap.push_back(i);
+                numItems++;
+            }
+
         }
     }
     int choice = getMenuChoice("", 1, numItems);
