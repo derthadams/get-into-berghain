@@ -28,6 +28,8 @@ public:
     int getRandomNumber();
     void addItem(Item* item) override;
     NextMove scene(int time, int& wallet, Outfit* outfit) override;
+    void tryOn(int& wallet, Outfit* outfit, int index);
+    void evaluate(Outfit* outfit, int index);
     bool isOpen(int time) override;
 };
 

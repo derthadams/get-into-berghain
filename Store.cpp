@@ -99,7 +99,8 @@ NextMove Store::scene(int time, int& wallet, Outfit* outfit)
         choice = getMenuChoice("", 1, static_cast<int>(inventory.size()) + 2);
         if (choice <= inventory.size())
         {
-            // Try on inventory.at(i)
+            tryOn(wallet, outfit, (choice - 1));
+            // evaluate (outfit, index)
         }
         else if (choice == inventory.size() + 1)
         {
@@ -107,6 +108,114 @@ NextMove Store::scene(int time, int& wallet, Outfit* outfit)
         }
     }
     return static_cast<NextMove>(getExitIndex());
+}
+
+void Store::tryOn(int& wallet, Outfit* outfit, int index)
+{
+    switch (inventory[index]->category)
+    {
+        case 0:
+        {
+            std::cout << "You slip out of your tired old shoes and put on the "
+                      << inventory[index]->type << ".\n"
+                      << "You take a few steps and twirl around as Pascal and "
+                      << clerkName << " examine you closely.\n\n";
+            break;
+        }
+        case 3:
+        {
+            std::cout << "You put on the " << inventory[index]->type
+                      << " 1and walk over to the mirror \nto take in the effect. "
+                         "You glance back at Pascal and "
+                      << clerkName << ".\n\n";
+            break;
+        }
+        default:
+        {
+            std::cout << "You take the " << inventory[index]->type
+                      << " back to the dressing room and put it on.\n"
+                         "As you emerge, Pascal and "
+                      << clerkName
+                      << " are waiting to deliver their verdict.\n\n";
+        }
+    }
+    evaluate(outfit, index);
+
+    int choice = getMenuChoice("1. Buy the " + inventory[index]->type +
+            "\n2. Don't.\n\n", 1, 2);
+    switch (choice)
+    {
+        case 1:
+        {
+            if (inventory[index]->price <= wallet)
+            {
+                if (outfit->addItem(inventory.at(index)))
+                {
+                    std::cout << "You say, \"I'll take it! "
+                                 "Can I just keep it on?\"\n"
+                              << clerkName
+                              << " says, \"As you wish.\"\nYou hand over the "
+                                 "\u20AC" << inventory[index]->price << ".\n\n";
+                    wallet -= inventory[index]->price;
+                    inventory.erase(inventory.begin() + index);
+                }
+                else
+                {
+                    switch (index)
+                    {
+                        case 0:
+                        {
+                            std::cout << "You've already purchased shoes!\n";
+                            break;
+                        }
+                        case 3:
+                        {
+                            std::cout
+                            << "You've already purchased an accessory!\n";
+                            break;
+                        }
+                        default:
+                        {
+                            std::cout << "You've already purchased a "
+                                      << categories[inventory[index]->category]
+                                      << "!\n";
+                            break;
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                std::cout << "You look in your wallet and realize you can't"
+                             "afford\nthe " << inventory[index]->type
+                          << ". Sheepishly you take it off and hand it back to "
+                          << clerkName << ".";
+            }
+            break;
+        }
+        case 2:
+        {
+            std::cout << "You say, \"I don't think it's for me\", as you hand "
+                         "the " << inventory[index]->type
+                         << " back to "
+                         << clerkName << ".\n\n";
+            break;
+        }
+    }
+}
+
+void Store::evaluate(Outfit*, int index)
+{
+    int randNum = getRandomNumber();
+    if (randNum < 90)
+    {
+        std::cout << clerkName << " likes it!\n";
+    }
+    if (randNum < 75)
+    {
+
+    }
 }
 
 void Store::addItem(Item* item)
