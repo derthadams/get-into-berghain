@@ -31,14 +31,10 @@ Game::Game()
     here->setWest(temp);
     here->getWest()->setEast(here);
 
-    temp = loadStreet("kreuzberg.txt")
+    temp = loadStreet("kreuzberg.txt");
     here->setSouth(temp);
     here->getSouth()->setNorth(here);
     walkSouth();
-
-    temp = loadStore("knokstore.txt");
-    here->setEast(temp);
-    here->getEast()->setWest(here);
 
     temp = loadStore("slacks.txt");
     here->setSouth(temp);
