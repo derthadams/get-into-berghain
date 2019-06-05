@@ -1,7 +1,8 @@
 //
 // Created by Derth Adams on 2019-06-03.
 //
-
+#include <iostream>
+#include <iomanip>
 #include "Outfit.hpp"
 #include "Item.hpp"
 
@@ -51,4 +52,29 @@ bool Outfit::isHot()
         }
     }
     return false;
+}
+
+void Outfit::areWearing()
+{
+    std::cout << "*** What you're wearing now ***\n";
+    std::cout << std::left << std::setw(12) << "Shoes:"
+              << getItemName(0) << "\n";
+    std::cout << std::left << std::setw(12) << "Bottom:"
+              << getItemName(1) << "\n";
+    std::cout << std::left << std::setw(12) << "Top:"
+              << getItemName(2) << "\n";
+    std::cout << std::left << std::setw(12) << "Accessory:"
+              << getItemName(3) << "\n\n";
+}
+
+std::string Outfit::getItemName(int index)
+{
+    if (clothes[index])
+    {
+        return clothes[index]->name;
+    }
+    else
+    {
+        return "Nothing special";
+    }
 }
