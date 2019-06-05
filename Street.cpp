@@ -7,7 +7,8 @@
 #include "getMenuChoice.hpp"
 
 Street::Street(std::string name, std::string introText,
-        std::string altIntroText) : Space::Space(name, introText, altIntroText)
+        std::string altIntroText) : Space::Space(std::move(name),
+                std::move(introText), std::move(altIntroText))
 {
     type = street;
 }
@@ -66,7 +67,6 @@ NextMove Street::scene(int time, int& wallet, Outfit* outfit)
                 menuMap.push_back(i);
                 numItems++;
             }
-
         }
     }
     int choice = getMenuChoice("", 1, numItems);

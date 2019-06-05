@@ -10,9 +10,10 @@
 
 Store::Store(std::string name, std::string introText,
              std::string altIntroText, std::string clerkName,
-             std::string clerkDescription) : Space::Space(name, introText,
-                     altIntroText), clerkName(clerkName),
-                     clerkDescription(clerkDescription)
+             std::string clerkDescription) : Space::Space(std::move(name),
+                     std::move(introText), std::move(altIntroText)),
+                     clerkName(std::move(clerkName)),
+                     clerkDescription(std::move(clerkDescription))
 {
     type = store;
 }
@@ -45,6 +46,7 @@ int Store::getExitIndex()
             return j;
         }
     }
+    return -1;
 }
 
 NextMove Store::scene(int time, int& wallet, Outfit* outfit)
@@ -63,7 +65,6 @@ NextMove Store::scene(int time, int& wallet, Outfit* outfit)
 
     std::cout << "A few items catch your eye:\n";
     int categoryIndex = -1;
-    std::string categories[] = {"Shoes", "Bottoms", "Tops", "Accessories"};
     for (int i = 0; i < inventory.size(); i++)
     {
         if (inventory.at(i)->category != categoryIndex)

@@ -9,9 +9,11 @@
 Club::Club(std::string name, std::string introText, std::string altIntroText,
         std::string incompleteOutfitText, std::string loseText,
         std::string winText)
-            : Space::Space(name, introText, altIntroText),
-            incompleteOutfitText(incompleteOutfitText), loseText(loseText),
-            winText(winText)
+            : Space::Space(std::move(name), std::move(introText),
+                    std::move(altIntroText)),
+            incompleteOutfitText(std::move(incompleteOutfitText)),
+            loseText(std::move(loseText)),
+            winText(std::move(winText))
 {
     type = club;
 }

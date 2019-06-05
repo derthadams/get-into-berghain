@@ -2,11 +2,13 @@
 // Created by Derth Adams on 2019-06-03.
 //
 #include <iostream>
+#include <utility>
 #include "Space.hpp"
 
 Space::Space(std::string name, std::string introText,
-             std::string altIntroText) : name(name), introText(introText),
-             altIntroText(altIntroText)
+             std::string altIntroText) : name(std::move(name)),
+             introText(std::move(introText)),
+             altIntroText(std::move(altIntroText))
 {
 }
 
