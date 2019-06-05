@@ -95,4 +95,5 @@ void Space::addItem(Item*)
 
 bool Space::isOpen(int time)
 {
+    return false;
 }
