@@ -14,6 +14,7 @@ bool Outfit::isComplete()
             return false;
         }
     }
+    return true;
 }
 
 bool Outfit::addItem(Item* purchase)
