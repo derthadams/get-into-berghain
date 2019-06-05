@@ -228,14 +228,15 @@ void Game::logLine()
         std::cout << "0";
     }
     std::cout << (time % 60);
-    if (time > 0)
+    if (time > 0 && time <=120)
     {
         std::cout  << " (" << TIME_LIMIT - time
                   << " minutes left)\n";
     }
     else
     {
-        std::cout << "\n";
+        std::cout <<
+            " (Your time is up)" << "\n";
     }
     std::cout << "Place:     " << here->getName() << "\n"
               << "Cash left: \u20AC" << wallet << "\n\n";
