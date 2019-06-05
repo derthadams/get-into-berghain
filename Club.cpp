@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "Club.hpp"
+#include "getMenuChoice.hpp"
 
 Club::Club(std::string name, std::string introText, std::string altIntroText,
         std::string incompleteOutfitText, std::string loseText,
@@ -27,6 +28,8 @@ NextMove Club::scene(int time, int& wallet, Outfit* outfit)
     {
         std::cout << incompleteOutfitText;
         std::cout  << "\n\n";
+        std::cout << "Enter 1 to continue your journey\n";
+        int choice = getMenuChoice("", 1, 1);
         return West;
     }
     else if (!visited)
@@ -34,6 +37,8 @@ NextMove Club::scene(int time, int& wallet, Outfit* outfit)
         std::cout << introText;
         std::cout  << "\n\n";
         visited = true;
+        std::cout << "Enter 1 to begin your journey\n";
+        int choice = getMenuChoice("", 1, 1);
         return West;
     }
 }
