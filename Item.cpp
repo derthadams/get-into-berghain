@@ -5,8 +5,9 @@
 #include "Item.hpp"
 
 Item::Item(std::string name, std::string type, int category, int price,
-           std::valarray<int> styles) : name(name), type(type),
-           category(category), price(price), styles(styles)
+           std::valarray<int> styles) : name(std::move(name)),
+           type(std::move(type)), category(category),
+           price(price), styles(std::move(styles))
            {
            }
 
