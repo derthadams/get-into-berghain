@@ -20,17 +20,32 @@ NextMove Club::scene(int time, int& wallet, Outfit* outfit)
 {
     if (visited && outfit->isComplete())
     {
-        std::cout << altIntroText;
-        std::cout  << "\n\n";
-        return West;
+        if (outfit->isHot())
+        {
+            std::cout << winText;
+            return Exit;
+        }
+        else
+        {
+            std::cout << loseText;
+            return Exit;
+        }
     }
     else if (visited && !outfit->isComplete())
     {
-        std::cout << incompleteOutfitText;
-        std::cout  << "\n\n";
-        std::cout << "Enter 1 to continue your journey\n";
-        int choice = getMenuChoice("", 1, 1);
-        return West;
+        if (time <=120)
+        {
+            std::cout << incompleteOutfitText;
+            std::cout  << "\n\n";
+            std::cout << "Enter 1 to continue your journey\n";
+            int choice = getMenuChoice("", 1, 1);
+            return West;
+        }
+        else
+        {
+            std::cout << loseText << "\n\n";
+            return Exit;
+        }
     }
     else if (!visited)
     {
@@ -42,4 +57,3 @@ NextMove Club::scene(int time, int& wallet, Outfit* outfit)
         return West;
     }
 }
-
