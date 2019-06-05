@@ -5,6 +5,7 @@
 #ifndef INC_162_FINAL_PROJECT_SHOPPINGBAG_HPP
 #define INC_162_FINAL_PROJECT_SHOPPINGBAG_HPP
 #include <array>
+#include <valarray>
 #include "Item.hpp"
 
 class Outfit
@@ -14,6 +15,8 @@ private:
 public:
     bool isComplete();
     bool addItem(Item* purchase);
+    std::valarray<int> getClothesTotal();
+    bool isHot();
 };
 
 #endif //INC_162_FINAL_PROJECT_SHOPPINGBAG_HPP

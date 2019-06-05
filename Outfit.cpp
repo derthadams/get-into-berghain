@@ -28,3 +28,26 @@ bool Outfit::addItem(Item* purchase)
         return true;
     }
 }
+
+std::valarray<int> Outfit::getClothesTotal()
+{
+    std::valarray<int> total = {0,0,0,0};
+    for (int i = 0; i < 4; i++)
+    {
+        total += clothes[i]->styles;
+    }
+    return total;
+}
+
+bool Outfit::isHot()
+{
+    std::valarray<int> total = getClothesTotal();
+    for (int i = 0; i < 3; i++)
+    {
+        if (total[i] >= 100)
+        {
+            return true;
+        }
+    }
+    return false;
+}
