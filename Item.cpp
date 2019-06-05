@@ -9,3 +9,15 @@ Item::Item(std::string name, std::string type, int category, int price,
            category(category), price(price), styles(styles)
            {
            }
+
+std::string Item::pronoun()
+{
+    if (type.back() == 's')
+    {
+        return "them";
+    }
+    else
+    {
+        return "it";
+    }
+}

@@ -16,6 +16,7 @@ struct Item
     int category;       // 0 = Shoes 1 = Bottom 2 = Top 3 = Accessory
     Item(std::string name, std::string type, int category, int price,
             std::valarray<int> styles);
+    std::string pronoun();
 };
 
 #endif //INC_162_FINAL_PROJECT_ITEM_HPP

@@ -73,38 +73,26 @@ NextMove Store::scene(int time, int& wallet, Outfit* outfit)
     visited = true;
 
     std::cout << "A few items catch your eye:\n";
-    int categoryIndex = -1;
-    for (int i = 0; i < inventory.size(); i++)
-    {
-        if (inventory.at(i)->category != categoryIndex)
-        {
-            categoryIndex++;
-            std::cout << "\n** " << categories[categoryIndex] << " **\n";
-        }
-        std::cout << i + 1 << ".   " << std::left << std::setw(62)
-                  << inventory.at(i)->name << std::setw(5)
-                  << "   (\u20AC" << inventory.at(i)->price << ")\n";
-    }
-    std::cout << "\n";
+    displayInventory();
 
     int choice = 0;
+    choice = mainMenu(wallet, outfit);
+
     while (choice != inventory.size() + 2)
     {
-        std::cout << "What would you like to do?\n\n";
-        std::cout << "To try on an item, enter the item's number.\n";
-        std::cout << inventory.size() + 1
-                  << ". Review what you're wearing now\n";
-        std::cout << inventory.size() + 2
-                  << ". Exit store\n";
-        choice = getMenuChoice("", 1, static_cast<int>(inventory.size()) + 2);
-        if (choice <= inventory.size())
+        if (outfit->isComplete())
         {
-            tryOn(wallet, outfit, (choice - 1));
-            // evaluate (outfit, index)
+            std::cout << "Pascal says, \"Honey, your outfit is complete! "
+                         "Let's head back to Berghain\n"
+                         "and try our luck!\"\n\n";
+            choice = getMenuChoice("1. Exit store\n", 1, 1);
+            choice = static_cast<int>(inventory.size() + 2);
         }
-        else if (choice == inventory.size() + 1)
+        else
         {
-            outfit->areWearing();
+            std::cout << "Available Items: \n";
+            displayInventory();
+            choice = mainMenu(wallet, outfit);
         }
     }
     return static_cast<NextMove>(getExitIndex());
@@ -125,7 +113,7 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
         case 3:
         {
             std::cout << "You put on the " << inventory[index]->type
-                      << " 1and walk over to the mirror \nto take in the effect. "
+                      << " and walk over to the mirror \nto take in the effect. "
                          "You glance back at Pascal and "
                       << clerkName << ".\n\n";
             break;
@@ -133,7 +121,8 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
         default:
         {
             std::cout << "You take the " << inventory[index]->type
-                      << " back to the dressing room and put it on.\n"
+                      << " back to the dressing room and put "
+                      << inventory[index]->pronoun() << " on.\n"
                          "As you emerge, Pascal and "
                       << clerkName
                       << " are waiting to deliver their verdict.\n\n";
@@ -142,7 +131,7 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
     evaluate(outfit, index);
 
     int choice = getMenuChoice("1. Buy the " + inventory[index]->type +
-            "\n2. Don't.\n\n", 1, 2);
+            "\n2. Put " + inventory[index]->pronoun() + " back.\n\n", 1, 2);
     switch (choice)
     {
         case 1:
@@ -151,8 +140,10 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
             {
                 if (outfit->addItem(inventory.at(index)))
                 {
-                    std::cout << "You say, \"I'll take it! "
-                                 "Can I just keep it on?\"\n"
+                    std::cout << "You say, \"I'll take "
+                              << inventory[index]->pronoun() << "! "
+                              << "Can I just keep "
+                              << inventory[index]->pronoun() << " on?\"\n"
                               << clerkName
                               << " says, \"As you wish.\"\nYou hand over the "
                                  "\u20AC" << inventory[index]->price << ".\n\n";
@@ -182,21 +173,23 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
                             break;
                         }
                     }
-
                 }
             }
             else
             {
-                std::cout << "You look in your wallet and realize you can't"
+                std::cout << "You look in your wallet and realize you can't "
                              "afford\nthe " << inventory[index]->type
-                          << ". Sheepishly you take it off and hand it back to "
-                          << clerkName << ".";
+                          << ". Sheepishly you take "
+                          << inventory[index]->pronoun()
+                          << " off and hand " << inventory[index]->pronoun()
+                          << " back to "
+                          << clerkName << ".\n\n";
             }
             break;
         }
         case 2:
         {
-            std::cout << "You say, \"I don't think it's for me\", as you hand "
+            std::cout << "You say, \"I don't think it's my style\", as you hand "
                          "the " << inventory[index]->type
                          << " back to "
                          << clerkName << ".\n\n";
@@ -236,4 +229,44 @@ int Store::getRandomNumber()
     std::mt19937 generator(static_cast<unsigned int>(seed));
     std::uniform_int_distribution<int> distribution(1,100);
     return distribution(generator);
+}
+
+void Store::displayInventory()
+{
+    int categoryIndex = -1;
+    for (int i = 0; i < inventory.size(); i++)
+    {
+        if (inventory.at(i)->category != categoryIndex)
+        {
+            categoryIndex = inventory.at(i)->category;
+            std::cout << "\n** " << categories[categoryIndex] << " **\n";
+        }
+        std::cout << i + 1 << ".   " << std::left << std::setw(62)
+                  << inventory.at(i)->name << std::setw(5)
+                  << "   (\u20AC" << inventory.at(i)->price << ")\n";
+    }
+    std::cout << "\n";
+}
+
+int Store::mainMenu(int& wallet, Outfit* outfit)
+{
+    int choice;
+    std::cout << "You have \u20AC" << wallet << " left to spend.\n\n";
+    std::cout << "What would you like to do?\n\n";
+    std::cout << "To try on an item, enter the item's number.\n";
+    std::cout << inventory.size() + 1
+              << ". Review what you're wearing now\n";
+    std::cout << inventory.size() + 2
+              << ". Exit store\n";
+    choice = getMenuChoice("", 1, static_cast<int>(inventory.size()) + 2);
+    if (choice <= inventory.size())
+    {
+        tryOn(wallet, outfit, (choice - 1));
+        // evaluate (outfit, index)
+    }
+    else if (choice == inventory.size() + 1)
+    {
+        outfit->areWearing();
+    }
+    return choice;
 }

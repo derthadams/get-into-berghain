@@ -31,6 +31,8 @@ public:
     void tryOn(int& wallet, Outfit* outfit, int index);
     void evaluate(Outfit* outfit, int index);
     bool isOpen(int time) override;
+    void displayInventory();
+    int mainMenu(int&, Outfit*);
 };
 
 
