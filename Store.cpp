@@ -20,10 +20,15 @@ Store::Store(std::string name, std::string introText,
 
 Store::~Store()
 {
-    for (int i = 0; i < inventory.size(); i++)
+//    for (int i = 0; i < inventory.size(); i++)
+//    {
+//        delete inventory.at(i);
+//        inventory.at(i) = nullptr;
+//    }
+    for (Item* item : inventory)
     {
-        delete inventory.at(i);
-        inventory.at(i) = nullptr;
+        delete item;
+        item = nullptr;
     }
 }
 
