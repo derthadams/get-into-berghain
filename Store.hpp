@@ -16,6 +16,8 @@ private:
     std::vector <Item*> inventory;
     std::string clerkName;
     std::string clerkDescription;
+    const std::string categories[4] =
+            {"Shoes", "Bottoms", "Tops", "Accessories"};
 public:
     Store(std::string name, std::string introText,
           std::string altIntroText, std::string clerkName,
