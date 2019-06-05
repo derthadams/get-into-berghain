@@ -5,6 +5,8 @@
 #include <iostream>
 #include <iomanip>
 #include <utility>
+#include <random>
+#include <chrono>
 #include "Store.hpp"
 #include "getMenuChoice.hpp"
 
@@ -16,6 +18,8 @@ Store::Store(std::string name, std::string introText,
                      clerkDescription(std::move(clerkDescription))
 {
     type = store;
+
+
 }
 
 Store::~Store()
@@ -113,4 +117,14 @@ void Store::addItem(Item* item)
 bool Store::isOpen(int time)
 {
     return (time <= 120);
+}
+
+int Store::getRandomNumber()
+{
+    auto seed = std::chrono::high_resolution_clock::now()
+            .time_since_epoch()
+            .count();
+    std::mt19937 generator(static_cast<unsigned int>(seed));
+    std::uniform_int_distribution<int> distribution(1,100);
+    return distribution(generator);
 }

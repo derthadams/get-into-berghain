@@ -9,7 +9,6 @@
 #include <string>
 #include <vector>
 
-
 class Store : public Space
 {
 private:
@@ -26,6 +25,7 @@ public:
     std::string getClerkName();
     std::string getClerkDescription();
     int getExitIndex();
+    int getRandomNumber();
     void addItem(Item* item) override;
     NextMove scene(int time, int& wallet, Outfit* outfit) override;
     bool isOpen(int time) override;
