@@ -19,7 +19,7 @@ NextMove Street::scene(int time, int& wallet, Outfit* outfit)
     }
     else
     {
-        std::cout << introText << "\n";
+        std::cout << introText;
     }
     std::cout  << "\n\n";
     visited = true;
