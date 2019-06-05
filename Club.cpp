@@ -20,36 +20,39 @@ Club::Club(std::string name, std::string introText, std::string altIntroText,
 
 NextMove Club::scene(int time, int& wallet, Outfit* outfit)
 {
-    if (visited && outfit->isComplete())
+    if (visited)
     {
-        if (outfit->isHot())
+        if (outfit->isComplete())
         {
-            std::cout << winText;
-            return Exit;
+            if (outfit->isHot())
+            {
+                std::cout << winText;
+                return Exit;
+            }
+            else
+            {
+                std::cout << loseText;
+                return Exit;
+            }
         }
         else
         {
-            std::cout << loseText;
-            return Exit;
+            if (time <=120)
+            {
+                std::cout << incompleteOutfitText;
+                std::cout  << "\n\n";
+                std::cout << "Enter 1 to continue your journey\n";
+                int choice = getMenuChoice("", 1, 1);
+                return West;
+            }
+            else
+            {
+                std::cout << loseText << "\n\n";
+                return Exit;
+            }
         }
     }
-    else if (visited && !outfit->isComplete())
-    {
-        if (time <=120)
-        {
-            std::cout << incompleteOutfitText;
-            std::cout  << "\n\n";
-            std::cout << "Enter 1 to continue your journey\n";
-            int choice = getMenuChoice("", 1, 1);
-            return West;
-        }
-        else
-        {
-            std::cout << loseText << "\n\n";
-            return Exit;
-        }
-    }
-    else if (!visited)
+    else
     {
         std::cout << introText;
         std::cout  << "\n\n";
@@ -59,3 +62,46 @@ NextMove Club::scene(int time, int& wallet, Outfit* outfit)
         return West;
     }
 }
+
+//NextMove Club::scene(int time, int& wallet, Outfit* outfit)
+//{
+//    if (visited && outfit->isComplete())
+//    {
+//        if (outfit->isHot())
+//        {
+//            std::cout << winText;
+//            return Exit;
+//        }
+//        else
+//        {
+//            std::cout << loseText;
+//            return Exit;
+//        }
+//    }
+//    else if (visited && !outfit->isComplete())
+//    {
+//        if (time <=120)
+//        {
+//            std::cout << incompleteOutfitText;
+//            std::cout  << "\n\n";
+//            std::cout << "Enter 1 to continue your journey\n";
+//            int choice = getMenuChoice("", 1, 1);
+//            return West;
+//        }
+//        else
+//        {
+//            std::cout << loseText << "\n\n";
+//            return Exit;
+//        }
+//    }
+//    else if (!visited)
+//    {
+//        std::cout << introText;
+//        std::cout  << "\n\n";
+//        visited = true;
+//        std::cout << "Enter 1 to begin your journey\n";
+//        int choice = getMenuChoice("", 1, 1);
+//        return West;
+//    }
+//}
+
