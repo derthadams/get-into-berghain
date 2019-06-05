@@ -69,6 +69,8 @@ NextMove Street::scene(int time, int& wallet, Outfit* outfit)
             }
         }
     }
+    std::cout << numItems << ". Quit Game\n";
+    menuMap.push_back(6);
     int choice = getMenuChoice("", 1, numItems);
     return static_cast<NextMove>(menuMap[choice - 1]);
 }
