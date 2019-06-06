@@ -3,6 +3,6 @@
 
 int main() {
     Game fashiongame;
-    fashiongame.play();
+    fashiongame.start();
     return 0;
 }

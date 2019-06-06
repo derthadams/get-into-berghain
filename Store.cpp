@@ -80,6 +80,7 @@ NextMove Store::scene(int& time, int& wallet, Outfit* outfit)
 
     while (choice != inventory.size() + 2)
     {
+        logLine(time, wallet);
         if (outfit->isComplete())
         {
             std::cout << "Pascal says, \"Honey, your outfit is complete! "
@@ -99,6 +100,7 @@ NextMove Store::scene(int& time, int& wallet, Outfit* outfit)
 
 void Store::tryOn(int& wallet, Outfit* outfit, int index)
 {
+    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
     switch (inventory[index]->category)
     {
         case 0:
@@ -139,6 +141,7 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
             {
                 if (outfit->addItem(inventory.at(index)))
                 {
+                    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
                     std::cout << "You say, \"I'll take "
                               << inventory[index]->pronoun() << "! "
                               << "Can I just keep "
@@ -305,7 +308,31 @@ int Store::mainMenu(int& time, int& wallet, Outfit* outfit)
     }
     else if (choice == inventory.size() + 1)
     {
+        std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
         outfit->areWearing();
     }
     return choice;
+}
+
+void Store::logLine(int time, int wallet)
+{
+    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
+    std::cout << "Time:      " << 19 + (time / 60) << ":";
+    if (time % 60 < 10)
+    {
+        std::cout << "0";
+    }
+    std::cout << (time % 60);
+    if (time >= 0 && time <=120)
+    {
+        std::cout  << " (" << 120 - time
+                   << " minutes left)\n";
+    }
+    else
+    {
+        std::cout <<
+                  " (Your time is up)" << "\n";
+    }
+    std::cout << "Place:     " << name << "\n"
+              << "Cash left: \u20AC" << wallet << "\n\n";
 }
