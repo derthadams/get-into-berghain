@@ -7,7 +7,6 @@
 #include <array>
 #include "Space.hpp"
 #include "Item.hpp"
-#include "constants.hpp"
 
 class Game
 {

@@ -9,7 +9,7 @@
 #include <chrono>
 #include "Store.hpp"
 #include "getMenuChoice.hpp"
-#include "constants.hpp"
+#include "Constants.hpp"
 
 Store::Store(std::string name, std::string introText,
              std::string altIntroText, std::string clerkName,
