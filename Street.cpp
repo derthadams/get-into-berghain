@@ -15,27 +15,35 @@ Street::Street(std::string name, std::string introText,
 
 NextMove Street::scene(int& time, int& wallet, Outfit* outfit)
 {
-    if (visited)
+//    if (visited)
+//    {
+//        if (time < 120)
+//        {
+//            std::cout << altIntroText;
+//        }
+//        else
+//        {
+//            std::cout << "The stores are closed.\n";
+//        }
+//    }
+//    else
+//    {
+//        if (time < 120)
+//        {
+//            std::cout << introText;
+//        }
+//        else
+//        {
+//            std::cout << "The stores are closed.\n";
+//        }
+//    }
+    if (time < 120)
     {
-        if (time <= 120)
-        {
-            std::cout << altIntroText;
-        }
-        else
-        {
-            std::cout << "The stores are closed.\n";
-        }
+        std::cout << introText;
     }
     else
     {
-        if (time <= 120)
-        {
-            std::cout << introText;
-        }
-        else
-        {
-            std::cout << "The stores are closed.\n";
-        }
+        std::cout << altIntroText;
     }
     std::cout  << "\n\n";
     visited = true;
