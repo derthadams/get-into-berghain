@@ -9,6 +9,7 @@
 #include <chrono>
 #include "Store.hpp"
 #include "getMenuChoice.hpp"
+#include "constants.hpp"
 
 Store::Store(std::string name, std::string introText,
              std::string altIntroText, std::string clerkName,
@@ -93,7 +94,7 @@ NextMove Store::scene(int& time, int& wallet, Outfit* outfit)
 
 void Store::tryOn(int& wallet, Outfit* outfit, int index)
 {
-    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
+    std::cout << SEPARATOR;
     switch (inventory[index]->category)
     {
         case 0:
@@ -134,7 +135,7 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
             {
                 if (outfit->addItem(inventory.at(index)))
                 {
-                    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
+                    std::cout << SEPARATOR;
                     std::cout << "You say, \"I'll take "
                               << inventory[index]->pronoun() << "! "
                               << "Can I just keep "
@@ -184,7 +185,7 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
         }
         case 2:
         {
-            std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
+            std::cout << SEPARATOR;
             std::cout << "You say, \"I don't think it's my style\", as you hand "
                          "the " << inventory[index]->type
                          << " back to "
@@ -268,7 +269,7 @@ void Store::addPascalResponse(std::string const& response)
 
 bool Store::isOpen(int time)
 {
-    return (time < 120);
+    return (time < TIME_LIMIT);
 }
 
 int Store::getRandomNumber(int min, int max)
@@ -303,7 +304,6 @@ void Store::displayInventory()
 int Store::mainMenu(int& time, int& wallet, Outfit* outfit)
 {
     int choice;
-//    std::cout << "You have \u20AC" << wallet << " left to spend.\n\n";
     std::cout << "What would you like to do?\n\n";
     std::cout << "To try on an item, enter the item's number.\n";
     std::cout << inventory.size() + 1
@@ -316,7 +316,7 @@ int Store::mainMenu(int& time, int& wallet, Outfit* outfit)
         int categoryIndex = inventory[choice - 1]->category;
         if (outfit->isCategoryTaken(categoryIndex))
         {
-            std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
+            std::cout << SEPARATOR;
             switch (categoryIndex)
             {
                 case 0:
@@ -349,7 +349,7 @@ int Store::mainMenu(int& time, int& wallet, Outfit* outfit)
     }
     else if (choice == inventory.size() + 1)
     {
-        std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
+        std::cout << SEPARATOR;
         outfit->areWearing();
     }
     return choice;
@@ -357,16 +357,16 @@ int Store::mainMenu(int& time, int& wallet, Outfit* outfit)
 
 void Store::logLine(int time, int wallet)
 {
-    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
-    std::cout << "Time:      " << 19 + (time / 60) << ":";
+    std::cout << SEPARATOR;
+    std::cout << "Time:      " << START_HOUR + (time / 60) << ":";
     if (time % 60 < 10)
     {
         std::cout << "0";
     }
     std::cout << (time % 60);
-    if (time >= 0 && time < 120)
+    if (time >= 0 && time < TIME_LIMIT)
     {
-        std::cout  << " (" << 120 - time
+        std::cout  << " (" << TIME_LIMIT - time
                    << " minutes left)\n";
     }
     else
@@ -376,7 +376,7 @@ void Store::logLine(int time, int wallet)
     }
     std::cout << "Place:     " << name << "\n"
               << "Cash left: \u20AC" << wallet << "\n\n";
-    if (time >= 120)
+    if (time >= TIME_LIMIT)
     {
         std::cout << clerkName
                   << " says, \"The store is now closed, but you can keep "

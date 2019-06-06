@@ -246,14 +246,14 @@ void Game::play()
 
 void Game::logLine()
 {
-    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
-    std::cout << "Time:      " << 19 + (time / 60) << ":";
+    std::cout << SEPARATOR;
+    std::cout << "Time:      " << START_HOUR + (time / 60) << ":";
     if (time % 60 < 10)
     {
         std::cout << "0";
     }
     std::cout << (time % 60);
-    if (time >= 0 && time <=120)
+    if (time >= 0 && time <= TIME_LIMIT)
     {
         std::cout  << " (" << TIME_LIMIT - time
                   << " minutes left)\n";
@@ -324,7 +324,6 @@ Space* Game::loadStore(std::string filename)
         Item* tempItem = new Item(name, type, category, price, styles);
         tempStore->addItem(tempItem);
         tempItem = nullptr;
-//        std::cin.ignore();
     }
     return tempStore;
 }

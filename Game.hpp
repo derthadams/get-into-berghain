@@ -7,21 +7,17 @@
 #include <array>
 #include "Space.hpp"
 #include "Item.hpp"
+#include "constants.hpp"
 
 class Game
 {
 private:
-    const int START_HOUR = 19;
-    const int END_HOUR = 21;
-    const int TIME_LIMIT = 120;
-    const int SHORT_TIME_STEP = 5;
-    const int LONG_TIME_STEP = 20;
+
     int time = 0;
     int wallet = 200;
     Outfit outfit;
     Space* here{nullptr};
     Space* home{nullptr};
-    bool gameActive = true;
 public:
     Game();
     ~Game();
@@ -33,7 +29,6 @@ public:
     void driveSouth();
     void start();
     void play();
-    void playTest();
     void logLine();
     Space* loadStore(std::string filename);
     Space* loadClub(std::string filename);
