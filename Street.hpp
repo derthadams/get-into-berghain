@@ -12,7 +12,7 @@ class Street : public Space
 {
 public:
     Street(std::string name, std::string introText, std::string altIntroText);
-    NextMove scene(int time, int& wallet, Outfit* outfit) override;
+    NextMove scene(int& time, int& wallet, Outfit* outfit) override;
 };
 
 

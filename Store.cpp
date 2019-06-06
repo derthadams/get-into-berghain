@@ -58,7 +58,7 @@ int Store::getExitIndex()
     return -1;
 }
 
-NextMove Store::scene(int time, int& wallet, Outfit* outfit)
+NextMove Store::scene(int& time, int& wallet, Outfit* outfit)
 {
     if (visited)
     {
@@ -76,15 +76,14 @@ NextMove Store::scene(int time, int& wallet, Outfit* outfit)
     displayInventory();
 
     int choice = 0;
-    choice = mainMenu(wallet, outfit);
+    choice = mainMenu(time, wallet, outfit);
 
     while (choice != inventory.size() + 2)
     {
         if (outfit->isComplete())
         {
             std::cout << "Pascal says, \"Honey, your outfit is complete! "
-                         "Let's head back to Berghain\n"
-                         "and try our luck!\"\n\n";
+                         "Let's head back to Berghain!\"\n\n";
             choice = getMenuChoice("1. Exit store\n", 1, 1);
             return Home;
         }
@@ -92,7 +91,7 @@ NextMove Store::scene(int time, int& wallet, Outfit* outfit)
         {
             std::cout << "Available Items: \n";
             displayInventory();
-            choice = mainMenu(wallet, outfit);
+            choice = mainMenu(time, wallet, outfit);
         }
     }
     return static_cast<NextMove>(getExitIndex());
@@ -287,10 +286,10 @@ void Store::displayInventory()
     std::cout << "\n";
 }
 
-int Store::mainMenu(int& wallet, Outfit* outfit)
+int Store::mainMenu(int& time, int& wallet, Outfit* outfit)
 {
     int choice;
-    std::cout << "You have \u20AC" << wallet << " left to spend.\n\n";
+//    std::cout << "You have \u20AC" << wallet << " left to spend.\n\n";
     std::cout << "What would you like to do?\n\n";
     std::cout << "To try on an item, enter the item's number.\n";
     std::cout << inventory.size() + 1
@@ -300,6 +299,7 @@ int Store::mainMenu(int& wallet, Outfit* outfit)
     choice = getMenuChoice("", 1, static_cast<int>(inventory.size()) + 2);
     if (choice <= inventory.size())
     {
+        time += 5;
         tryOn(wallet, outfit, (choice - 1));
         // evaluate (outfit, index)
     }

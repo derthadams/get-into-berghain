@@ -13,7 +13,7 @@ Street::Street(std::string name, std::string introText,
     type = street;
 }
 
-NextMove Street::scene(int time, int& wallet, Outfit* outfit)
+NextMove Street::scene(int& time, int& wallet, Outfit* outfit)
 {
     if (visited)
     {

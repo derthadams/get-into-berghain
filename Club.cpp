@@ -18,7 +18,7 @@ Club::Club(std::string name, std::string introText, std::string altIntroText,
     type = club;
 }
 
-NextMove Club::scene(int time, int& wallet, Outfit* outfit)
+NextMove Club::scene(int& time, int& wallet, Outfit* outfit)
 {
     if (visited)
     {
