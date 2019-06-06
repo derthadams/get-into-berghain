@@ -13,7 +13,7 @@ Item::Item(std::string name, std::string type, int category, int price,
 
 std::string Item::pronoun()
 {
-    if (type.back() == 's')
+    if (type.back() == 's' || type.back() == 'n')
     {
         return "them";
     }
@@ -21,4 +21,16 @@ std::string Item::pronoun()
     {
         return "it";
     }
+}
+
+int Item::strongestStyle()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        if (styles[i] == styles.max())
+        {
+            return i;
+        }
+    }
+    return -1;
 }
