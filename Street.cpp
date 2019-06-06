@@ -52,6 +52,18 @@ NextMove Street::scene(int time, int& wallet, Outfit* outfit)
                 std::cout << neighbors[i]->getName() << "\n";
                 menuMap.push_back(i);
                 numItems++;
+
+                std::cout << numItems << ". Drive to ";
+                std::cout << neighbors[i]->getName() << "\n";
+                if (i == 0)
+                {
+                    menuMap.push_back(4);
+                }
+                else if (i == 2)
+                {
+                    menuMap.push_back(5);
+                }
+                numItems++;
             }
             else if (neighbors[i]->getType() == store &&
                      neighbors[i]->isOpen(time))

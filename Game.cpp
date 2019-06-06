@@ -206,11 +206,13 @@ void Game::play()
             case DriveNorth:
             {
                 driveNorth();
+                wallet -= 10;
                 break;
             }
             case DriveSouth:
             {
                 driveSouth();
+                wallet -= 10;
                 break;
             }
             case Exit:
