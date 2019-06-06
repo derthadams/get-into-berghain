@@ -17,6 +17,7 @@ struct Item
     Item(std::string name, std::string type, int category, int price,
             std::valarray<int> styles);
     std::string pronoun();
+    int strongestStyle();
 };
 
 #endif //INC_162_FINAL_PROJECT_ITEM_HPP
