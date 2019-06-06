@@ -1,0 +1,120 @@
+Slacks Fashion$
+You enter a room with crown molding and distressed antique wallpaper. An old
+gramophone plays in the corner. Ute, the saleslady, walks over, her heels
+clacking on the hardwood floor.$
+Ute greets you with a "So happy to see you again."$
+Ute$
+She's wearing a mustard corset with black lace trim that shows off her
+colorful chest tattoos. Her long, bright red hair emerges from a giant
+floral headdress.$
+You look ravishing.$
+So sophisticated!$
+That looks incredible, you vixen!$
+You may want to choose something else.$
+I see where you're trying to go, but that does not get you there.$
+That's not the best choice for you.$
+That look is fire!$
+Gurrrl... Yes!$
+You're an icon.$
+I don't know about that one.$
+You look like a French maid... and not in a good way.$
+Maybe not.$
+Black brogued wingtip shoes$
+wingtips$
+0
+45
+
+30
+15
+0
+0
+Black leather Victorian high-heeled ankle boot$
+ankle boot$
+0
+40
+
+30
+25
+0
+0
+Black lace ruffled skirt with petticoats$
+lace skirt$
+1
+40
+
+25
+15
+5
+0
+Black equestrian breeches$
+breeches$
+1
+40
+
+30
+10
+0
+0
+Red tartan sleeveless top with black leather lapels$
+tartan top$
+2
+60
+
+20
+30
+5
+0
+Red satin bustier with Japanese floral print$
+satin bustier$
+2
+65
+
+30
+10
+5
+0
+Silver and black print vest with lace-up back$
+vest$
+2
+35
+
+25
+15
+0
+0
+Black satin elbow-length gloves$
+satin gloves$
+3
+30
+
+30
+15
+5
+0
+Black leather carnival mask with horns$
+carnival mask$
+3
+35
+
+25
+10
+20
+0
+Top hat with textured leather band$
+top hat$
+3
+25
+
+25
+15
+0
+0
+Red and black lace choker$
+choker$
+3
+15
+
+30
+15
+0
+0

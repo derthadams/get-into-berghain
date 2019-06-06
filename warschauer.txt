@@ -1,0 +1,35 @@
+Warschauer Strasse$
+You see two storefronts:
+
+Savage-Wear
+A sly cartoon cat winks at you from the sign. In the window you
+see mannequins that look kind of like blow-up dolls.
+One is wearing a military-themed latex ensemble and the other has on a
+form-fitting latex dress with broad horizontal black and white stripes.
+
+Darkstore
+A small boutique whose name is scrawled in blood-red gothic script
+all over the brick wall. A sign on the door says “Domain du Nacht!”
+In the display window you catch a glimpse of a white satin lace-up bustier.
+
+You could try your luck at one of these neighborhood stores, or you could go
+shopping in Kreuzberg, another neighborhood a mile away.
+
+You consult your phone.
+
+Walking to Kreuzberg will take 20 minutes.
+Taking a car to Kreuzberg will only take 5 minutes but costs €10.
+
+You could go back to Berghain, but are you ready?$
+You see two storefronts:
+
+Savage-Wear
+Darkstore
+
+You could try your luck at one of these neighborhood stores, or you could go
+shopping in Kreuzberg, another neighborhood a mile away.
+
+Walking to Kreuzberg takes 20 minutes.
+Taking a car to Kreuzberg only takes 5 minutes but costs €10.
+
+You could go back to Berghain, but are you ready to face Sven again?$

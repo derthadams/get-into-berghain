@@ -1,0 +1,92 @@
+Savage-Wear$
+You step into an elegant space with parquet floors and chandeliers, with racks
+of clothes along the walls. All around is the glint of latex and leather.$
+As you enter, Hans looks up, bored, and says, "Oh, you again?"$
+Hans$
+Hans, a tall man wearing a latex kilt, long overcoat
+and black latex policeman's hat stands at the counter reading a magazine.
+Without looking up he gestures to the clothes and says, "Have a look around."$
+Ja.$
+Good.$
+That does not look so bad!$
+Never.$
+Are you kidding?$
+Perhaps fashion is not your thing.$
+Va- va- voom!$
+Git it, gurl!$
+They're going to go crazy for that at the club!$
+Hmm... that's not working.$
+I'm not sure if that's doing what you want it to.$
+I'm afraid that's not your best look.$
+Black patent leather stiletto heels$
+stilettos$
+0
+50
+
+5
+20
+30
+0
+Red patent leather ankle length motorcycle boots$
+motorcycle boots$
+0
+45
+
+5
+30
+15
+0
+Silver and black latex thigh-high stockings$
+latex stockings$
+1
+40
+
+10
+15
+25
+0
+Black leather motorcycle pants with red chevron accents$
+leather pants$
+1
+40
+
+0
+30
+15
+0
+Silver latex miniskirt with black racing stripes$
+latex miniskirt$
+1
+35
+
+0
+10
+25
+0
+Metallic silver and black latex leotard$
+latex leotard$
+2
+75
+
+10
+15
+30
+0
+Floor-length latex trenchcoat with spiked shoulders$
+latex trenchcoat$
+2
+70
+
+5
+15
+30
+0
+Black latex garrison military cap$
+garrison cap$
+3
+30
+
+0
+15
+30
+0

@@ -1,0 +1,118 @@
+Pink Cadillac$
+The walls and floor are day-glo orange and yellow. Racks of clothing in all
+colors fill the room. Club music blasts from the sound system. The
+salesman Ulli bounds towards you and shouts, "good evening!"$
+Ulli yells, "Welome back!"$
+Ulli$
+He wears a bright purple jumpsuit and sneakers.$
+Splendid!$
+Awesome!$
+Stunning!$
+Nein.$
+This look confuses me.$
+Hmm, I don't think so.$
+F... I... R... E... !!!$
+Gurrrl, your look just killed me dead!$
+You're an icon.$
+I don't think that's getting you in the club.$
+You should get something else.$
+That's not the most flattering look for you.$
+Pink Chuck Taylor hi-top sneakers$
+hi-tops$
+0
+25
+
+0
+30
+25
+0
+Oxblood Doc Martens shoes$
+Doc Martens$
+0
+40
+
+0
+30
+10
+0
+Knee-length skirt made of green astroturf$
+astroturf skirt$
+1
+40
+
+0
+10
+30
+0
+Green and teal chiffon ballerina skirt$
+ballerina skirt$
+1
+35
+
+5
+0
+25
+0
+Lime green short-shorts$
+short-shorts$
+1
+25
+
+0
+5
+30
+0
+Shiny brown lederhosen with suspenders$
+lederhosen$
+1
+35
+
+0
+10
+20
+0
+Shiny pink ruched halter top with leopard print trim$
+halter top$
+2
+35
+
+0
+10
+25
+0
+Black sleeveless top with giant fringed epaulets$
+sleeveless top$
+2
+40
+
+5
+15
+30
+0
+Torn vintage black AC/DC T-shirt$
+T-shirt$
+2
+20
+
+0
+30
+10
+0
+Vintage red flannel shirt$
+flannel shirt$
+2
+30
+
+0
+30
+0
+0
+Silver Wonder Woman-style headband/tiara$
+tiara$
+3
+25
+
+0
+5
+25
+0

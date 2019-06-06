@@ -1,0 +1,28 @@
+Kreuzberg Strasse$
+The street is alive with hipsters wandering in packs between the restaurants,
+bars and clubs. You notice two clothing stores on the block:
+
+Slacks Fashion
+Above the red wood-paneled facade hangs a sign with the name of the store in
+elegant script. In the window display you see a knee-length dress with
+lace-edged panels and some top hats.
+
+Pink Cadillac
+Behind the baby-blue facade you see a busy display with bright neon-colored
+clothes bathed in blacklight.
+
+You could sample the wares at one of these shops, or you could go back to
+Warschauer Strasse.
+
+Walking to Warschauer takes 20 minutes.
+Taking a car to Warschauer takes 5 minutes but costs €10.$
+You notice two clothing stores on the block:
+
+Slacks Fashion
+Pink Cadillac
+
+You could sample the wares at one of these shops, or you could go back to
+Warschauer Strasse.
+
+Walking to Warschauer takes 20 minutes.
+Taking a car to Warschauer takes 5 minutes but costs €10.$
