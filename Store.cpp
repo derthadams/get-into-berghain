@@ -191,6 +191,7 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
         }
         case 2:
         {
+            std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
             std::cout << "You say, \"I don't think it's my style\", as you hand "
                          "the " << inventory[index]->type
                          << " back to "
@@ -202,14 +203,18 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
 
 void Store::evaluate(Outfit* outfit, int index)
 {
-    int randNum = getRandomNumber();
+    int randNum = getRandomNumber(1, 100);
+    int response = getRandomNumber(0, 2);
     if (randNum < 90)
     {
-        std::cout << clerkName << " likes it!\n";
+
+        std::cout << clerkName << " says, \""
+                  << clerkResponse.at(response) << "\"\n" ;
     }
     else
     {
-        std::cout << clerkName << " doesn't like it!";
+        std::cout << clerkName << " says, \""
+                  << clerkResponse.at(response + 3) << "\"\n" ;
     }
     bool rightAnswer = false;
 
@@ -226,26 +231,28 @@ void Store::evaluate(Outfit* outfit, int index)
     }
     if (randNum < 75)
     {
-        std::cout << "Pascal gives you good advice: ";
+        // Good advice
+        std::cout << "Pascal says, \"";
         if (rightAnswer)
         {
-            std::cout << "get it, gurl!\n\n";
+            std::cout << pascalResponse.at(response) << "\"\n\n";
         }
         else
         {
-            std::cout << "honey, I don't think so.\n\n";
+            std::cout << pascalResponse.at(response + 3) << "\"\n\n";
         }
     }
     else
     {
-        std::cout << "Pascal gives you bad advice: ";
+        // Bad advice
+        std::cout << "Pascal exclaims, \"";
         if (rightAnswer)
         {
-            std::cout << "honey, I don't think so.\n\n";
+            std::cout << pascalResponse.at(response + 3) << "\"\n\n";
         }
         else
         {
-            std::cout << "get it, gurl!\n\n";
+            std::cout << pascalResponse.at(response) << "\"\n\n";
         }
     }
 
@@ -256,18 +263,28 @@ void Store::addItem(Item* item)
     inventory.push_back(item);
 }
 
+void Store::addClerkResponse(std::string const& response)
+{
+    clerkResponse.push_back(response);
+}
+
+void Store::addPascalResponse(std::string const& response)
+{
+    pascalResponse.push_back(response);
+}
+
 bool Store::isOpen(int time)
 {
     return (time <= 120);
 }
 
-int Store::getRandomNumber()
+int Store::getRandomNumber(int min, int max)
 {
     auto seed = std::chrono::high_resolution_clock::now()
             .time_since_epoch()
             .count();
     std::mt19937 generator(static_cast<unsigned int>(seed));
-    std::uniform_int_distribution<int> distribution(1,100);
+    std::uniform_int_distribution<int> distribution(min, max);
     return distribution(generator);
 }
 
@@ -278,6 +295,7 @@ void Store::displayInventory()
     {
         if (inventory.at(i)->category != categoryIndex)
         {
+
             categoryIndex = inventory.at(i)->category;
             std::cout << "\n** " << categories[categoryIndex] << " **\n";
         }
@@ -302,9 +320,39 @@ int Store::mainMenu(int& time, int& wallet, Outfit* outfit)
     choice = getMenuChoice("", 1, static_cast<int>(inventory.size()) + 2);
     if (choice <= inventory.size())
     {
-        time += 5;
-        tryOn(wallet, outfit, (choice - 1));
-        // evaluate (outfit, index)
+        int categoryIndex = inventory[choice - 1]->category;
+        if (outfit->isCategoryTaken(categoryIndex))
+        {
+            std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
+            switch (categoryIndex)
+            {
+                case 0:
+                {
+                    std::cout << "You've already purchased shoes!\n";
+                    break;
+                }
+                case 3:
+                {
+                    std::cout
+                            << "You've already purchased an accessory!\n";
+                    break;
+                }
+                default:
+                {
+                    std::cout << "You've already purchased a "
+                              << categories[categoryIndex]
+                              << "!\n";
+                    break;
+                }
+            }
+            std::cout
+                    << "Try selecting something from a different category.\n\n";
+        }
+        else
+        {
+            time += 5;
+            tryOn(wallet, outfit, (choice - 1));
+        }
     }
     else if (choice == inventory.size() + 1)
     {

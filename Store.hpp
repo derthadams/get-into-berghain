@@ -15,6 +15,8 @@ private:
     std::vector <Item*> inventory;
     std::string clerkName;
     std::string clerkDescription;
+    std::vector <std::string> clerkResponse;
+    std::vector <std::string> pascalResponse;
     const std::string categories[4] =
             {"Shoes", "Bottoms", "Tops", "Accessories"};
 public:
@@ -25,8 +27,10 @@ public:
     std::string getClerkName();
     std::string getClerkDescription();
     int getExitIndex();
-    int getRandomNumber();
+    int getRandomNumber(int min, int max);
     void addItem(Item* item) override;
+    void addClerkResponse(std::string const&) override;
+    void addPascalResponse(std::string const&) override;
     NextMove scene(int& time, int& wallet, Outfit* outfit) override;
     void tryOn(int& wallet, Outfit* outfit, int index);
     void evaluate(Outfit* outfit, int index);

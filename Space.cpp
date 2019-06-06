@@ -99,3 +99,13 @@ bool Space::isOpen(int time)
 {
     return false;
 }
+
+void Space::addClerkResponse(std::string const&)
+{
+
+}
+
+void Space::addPascalResponse(std::string const&)
+{
+
+}

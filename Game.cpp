@@ -273,7 +273,8 @@ Space* Game::loadStore(std::string filename)
                 altIntroText,
                 clerkName,
                 clerkDesc,
-                type;
+                type,
+                response;
     int category,
         price;
     std::valarray<int> styles = {0,0,0,0};
@@ -291,8 +292,20 @@ Space* Game::loadStore(std::string filename)
                     clerkName.end());
     std::getline(inputFile, clerkDesc, '$');
 
-
     tempStore = new Store(name, introText,altIntroText, clerkName, clerkDesc);
+
+    for (int i = 0; i < 6; i++)
+    {
+        std::getline(inputFile, response, '$');
+        response.erase(response.begin());
+        tempStore->addClerkResponse(response);
+    }
+    for (int i = 0; i < 6; i++)
+    {
+        std::getline(inputFile, response, '$');
+        response.erase(response.begin());
+        tempStore->addPascalResponse(response);
+    }
 
     while (!inputFile.eof())
     {
