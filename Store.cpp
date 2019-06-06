@@ -113,7 +113,7 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
         case 3:
         {
             std::cout << "You put on the " << inventory[index]->type
-                      << " and walk over to the mirror \nto take in the effect. "
+                      << " and walk over to the mirror to have a look.\n"
                          "You glance back at Pascal and "
                       << clerkName << ".\n\n";
             break;
@@ -198,17 +198,55 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
     }
 }
 
-void Store::evaluate(Outfit*, int index)
+void Store::evaluate(Outfit* outfit, int index)
 {
     int randNum = getRandomNumber();
     if (randNum < 90)
     {
         std::cout << clerkName << " likes it!\n";
     }
+    else
+    {
+        std::cout << clerkName << " doesn't like it!";
+    }
+    bool rightAnswer = false;
+
+    if (outfit->isEmpty())
+    {
+        rightAnswer = true;
+    }
+    else
+    {
+        rightAnswer = (inventory[index]->strongestStyle()
+                        == outfit->strongestStyle());
+        std::cout << "Strongest style index so far: "
+                  << outfit->strongestStyle() << "\n";
+    }
     if (randNum < 75)
     {
-
+        std::cout << "Pascal gives you good advice: ";
+        if (rightAnswer)
+        {
+            std::cout << "get it, gurl!\n\n";
+        }
+        else
+        {
+            std::cout << "honey, I don't think so.\n\n";
+        }
     }
+    else
+    {
+        std::cout << "Pascal gives you bad advice: ";
+        if (rightAnswer)
+        {
+            std::cout << "honey, I don't think so.\n\n";
+        }
+        else
+        {
+            std::cout << "get it, gurl!\n\n";
+        }
+    }
+
 }
 
 void Store::addItem(Item* item)
@@ -241,7 +279,8 @@ void Store::displayInventory()
             categoryIndex = inventory.at(i)->category;
             std::cout << "\n** " << categories[categoryIndex] << " **\n";
         }
-        std::cout << i + 1 << ".   " << std::left << std::setw(62)
+        std::cout << std::left << std::setw(5) << std::to_string(i + 1) + "."
+                  << std::setw(62)
                   << inventory.at(i)->name << std::setw(5)
                   << "   (\u20AC" << inventory.at(i)->price << ")\n";
     }
