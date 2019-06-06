@@ -30,6 +30,11 @@ bool Outfit::isEmpty()
     return true;
 }
 
+bool Outfit::isCategoryTaken(int index)
+{
+    return (clothes[index]);
+}
+
 bool Outfit::addItem(Item* purchase)
 {
     if (clothes[purchase->category])
@@ -98,6 +103,9 @@ int Outfit::strongestStyle()
 {
     for (int i = 0; i < 3; i++)
     {
+//        std::cout << "From outfit.strongestStyle():\n";
+//        std::cout << getClothesTotal()[i] << " " << getClothesTotal().max()
+//                  << "\n";
         if (getClothesTotal()[i] == getClothesTotal().max())
         {
             return i;

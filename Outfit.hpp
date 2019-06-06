@@ -15,6 +15,7 @@ private:
 public:
     bool isComplete();
     bool isEmpty();
+    bool isCategoryTaken(int index);
     bool addItem(Item* purchase);
     std::valarray<int> getClothesTotal();
     bool isHot();
