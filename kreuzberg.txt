@@ -16,13 +16,11 @@ Warschauer Strasse.
 
 Walking to Warschauer takes 20 minutes.
 Taking a car to Warschauer takes 5 minutes but costs €10.$
-You notice two clothing stores on the block:
+All the storefronts on the street are dark. You race from one to the other,
+but nothing is open.
 
-Slacks Fashion
-Pink Cadillac
-
-You could sample the wares at one of these shops, or you could go back to
-Warschauer Strasse.
+With all of your options exhausted, you might as well go back to
+Warschauer Strasse and see how Sven feels about your outfit now.
 
 Walking to Warschauer takes 20 minutes.
 Taking a car to Warschauer takes 5 minutes but costs €10.$

@@ -21,15 +21,10 @@ Walking to Kreuzberg will take 20 minutes.
 Taking a car to Kreuzberg will only take 5 minutes but costs €10.
 
 You could go back to Berghain, but are you ready?$
-You see two storefronts:
+With all of the shops on the street closed, the only source of light is
+the massive, pulsing spectacle of Berghain.
 
-Savage-Wear
-Darkstore
+Sven is waiting across the street.
 
-You could try your luck at one of these neighborhood stores, or you could go
-shopping in Kreuzberg, another neighborhood a mile away.
-
-Walking to Kreuzberg takes 20 minutes.
-Taking a car to Kreuzberg only takes 5 minutes but costs €10.
-
-You could go back to Berghain, but are you ready to face Sven again?$
+Walking to Kreuzberg takes 20 minutes, but what's the point?
+Taking a car to Kreuzberg would now be a waste of €10.$
