@@ -18,17 +18,10 @@ Store::Store(std::string name, std::string introText,
                      clerkDescription(std::move(clerkDescription))
 {
     type = store;
-
-
 }
 
 Store::~Store()
 {
-//    for (int i = 0; i < inventory.size(); i++)
-//    {
-//        delete inventory.at(i);
-//        inventory.at(i) = nullptr;
-//    }
     for (Item* item : inventory)
     {
         delete item;
