@@ -31,6 +31,7 @@ public:
     void walkWest();
     void driveNorth();
     void driveSouth();
+    void start();
     void play();
     void playTest();
     void logLine();

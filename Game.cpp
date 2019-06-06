@@ -174,6 +174,22 @@ void Game::playTest()
     }
 }
 
+void Game::start()
+{
+    std::cout << "\n";
+    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*\n";
+    std::cout << "*_*  GET INTO BERGHAIN  *_*\n";
+    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
+
+    int choice = getMenuChoice("1. Play Game\n2. Quit", 1, 2);
+    while (choice !=2)
+    {
+        play();
+        choice = getMenuChoice("1. Play Again\n2. Quit", 1, 2);
+    }
+
+}
+
 void Game::play()
 {
     NextMove next;
@@ -229,13 +245,14 @@ void Game::play()
 
 void Game::logLine()
 {
+    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
     std::cout << "Time:      " << 19 + (time / 60) << ":";
     if (time % 60 < 10)
     {
         std::cout << "0";
     }
     std::cout << (time % 60);
-    if (time > 0 && time <=120)
+    if (time >= 0 && time <=120)
     {
         std::cout  << " (" << TIME_LIMIT - time
                   << " minutes left)\n";
