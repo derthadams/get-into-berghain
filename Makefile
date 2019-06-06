@@ -5,7 +5,7 @@
 
 CXX = g++
 CXXFLAGS = -std=c++11
-objects = main.o dbl_to_string.o getDouble.o getInt.o getMenuChoice.o getString.o Club.o Game.o Item.o ShoppingBag.o Space.o Store.o Street.o
+objects = main.o dbl_to_string.o getDouble.o getInt.o getMenuChoice.o getString.o Club.o Game.o Item.o Outfit.o Space.o Store.o Street.o
 
 
 final_project: $(objects)
@@ -15,7 +15,7 @@ main.o: Game.hpp
 
 Game.o: Game.hpp Club.hpp Street.hpp Store.hpp getMenuChoice.hpp
 
-Club.o: Club.hpp
+Club.o: Club.hpp getMenuChoice.hpp
 
 Item.o: Item.hpp
 
@@ -23,9 +23,9 @@ Outfit.o: Outfit.hpp Item.hpp
 
 Space.o: Space.hpp
 
-Street.o: Street.hpp
+Street.o: Street.hpp getMenuChoice.hpp
 
-Store.o: Store.hpp
+Store.o: Store.hpp getMenuChoice.hpp
 
 getMenuChoice.o: getMenuChoice.hpp getInt.hpp getDouble.hpp dbl_to_string.hpp
 
