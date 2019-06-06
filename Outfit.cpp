@@ -18,6 +18,18 @@ bool Outfit::isComplete()
     return true;
 }
 
+bool Outfit::isEmpty()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        if (clothes[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 bool Outfit::addItem(Item* purchase)
 {
     if (clothes[purchase->category])
@@ -36,7 +48,10 @@ std::valarray<int> Outfit::getClothesTotal()
     std::valarray<int> total = {0,0,0,0};
     for (int i = 0; i < 4; i++)
     {
-        total += clothes[i]->styles;
+        if (clothes[i])
+        {
+            total += clothes[i]->styles;
+        }
     }
     return total;
 }
@@ -77,4 +92,16 @@ std::string Outfit::getItemName(int index)
     {
         return "Nothing special";
     }
+}
+
+int Outfit::strongestStyle()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        if (getClothesTotal()[i] == getClothesTotal().max())
+        {
+            return i;
+        }
+    }
+    return -1;
 }

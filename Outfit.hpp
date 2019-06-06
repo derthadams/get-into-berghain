@@ -14,11 +14,13 @@ private:
     std::array <Item*, 4> clothes = {{nullptr}};
 public:
     bool isComplete();
+    bool isEmpty();
     bool addItem(Item* purchase);
     std::valarray<int> getClothesTotal();
     bool isHot();
     void areWearing();
     std::string getItemName(int index);
+    int strongestStyle();
 };
 
 #endif //INC_162_FINAL_PROJECT_SHOPPINGBAG_HPP
