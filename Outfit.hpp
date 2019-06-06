@@ -13,6 +13,7 @@ class Outfit
 private:
     std::array <Item*, 4> clothes = {{nullptr}};
 public:
+    ~Outfit();
     bool isComplete();
     bool isEmpty();
     bool isCategoryTaken(int index);

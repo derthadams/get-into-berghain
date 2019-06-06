@@ -6,6 +6,18 @@
 #include "Outfit.hpp"
 #include "Item.hpp"
 
+Outfit::~Outfit()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        if (clothes[i])
+        {
+            delete clothes[i];
+            clothes[i] = nullptr;
+        }
+    }
+}
+
 bool Outfit::isComplete()
 {
     for (int i = 0; i < 4; i++)
