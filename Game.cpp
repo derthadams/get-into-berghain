@@ -57,6 +57,7 @@ Game::~Game()
         delete here;
         here = nullptr;
     }
+    home = nullptr;
 }
 
 void Game::walkNorth()
