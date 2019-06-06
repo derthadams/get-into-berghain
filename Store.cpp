@@ -268,7 +268,7 @@ void Store::addPascalResponse(std::string const& response)
 
 bool Store::isOpen(int time)
 {
-    return (time <= 120);
+    return (time < 120);
 }
 
 int Store::getRandomNumber(int min, int max)
@@ -364,7 +364,7 @@ void Store::logLine(int time, int wallet)
         std::cout << "0";
     }
     std::cout << (time % 60);
-    if (time >= 0 && time <=120)
+    if (time >= 0 && time < 120)
     {
         std::cout  << " (" << 120 - time
                    << " minutes left)\n";
@@ -376,4 +376,10 @@ void Store::logLine(int time, int wallet)
     }
     std::cout << "Place:     " << name << "\n"
               << "Cash left: \u20AC" << wallet << "\n\n";
+    if (time >= 120)
+    {
+        std::cout << clerkName
+                  << " says, \"The store is now closed, but you can keep "
+                     "looking if you want.\"\n\n";
+    }
 }
