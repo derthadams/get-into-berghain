@@ -129,53 +129,6 @@ void Game::driveSouth()
     }
 }
 
-void Game::playTest()
-{
-    int choice = 0;
-    logLine();
-    choice = getMenuChoice("Choose one of these options:\n"
-                           "1. Move North\n"
-                           "2. Move East\n"
-                           "3. Move South\n"
-                           "4. Move West\n"
-                           "5. Exit\n", 1, 5);
-    while (choice != 5)
-    {
-        switch(choice)
-        {
-            case 1:
-            {
-                walkNorth();
-                break;
-            }
-            case 2:
-            {
-                walkEast();
-                break;
-            }
-            case 3:
-            {
-                walkSouth();
-                break;
-            }
-            case 4:
-            {
-                walkWest();
-                break;
-            }
-        }
-        logLine();
-        here->scene(time, wallet, &outfit);
-//        std::cout << "Current location: " << here->getName() << "\n";
-        choice = getMenuChoice("Choose one of these options:\n"
-                               "1. Move North\n"
-                               "2. Move East\n"
-                               "3. Move South\n"
-                               "4. Move West\n"
-                               "5. Exit\n", 1, 5);
-    }
-}
-
 void Game::start()
 {
     std::cout << "\n";

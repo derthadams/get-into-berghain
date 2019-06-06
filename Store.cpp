@@ -30,16 +30,6 @@ Store::~Store()
     }
 }
 
-std::string Store::getClerkName()
-{
-    return clerkName;
-}
-
-std::string Store::getClerkDescription()
-{
-    return clerkDescription;
-}
-
 int Store::getExitIndex()
 {
     for (int j = 0; j < 4; j++)

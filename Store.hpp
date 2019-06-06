@@ -24,8 +24,6 @@ public:
           std::string altIntroText, std::string clerkName,
           std::string clerkDescription);
     ~Store() override;
-    std::string getClerkName();
-    std::string getClerkDescription();
     int getExitIndex();
     int getRandomNumber(int min, int max);
     void addItem(Item* item) override;
