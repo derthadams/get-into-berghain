@@ -1,6 +1,10 @@
-//
-// Created by Derth Adams on 2019-06-03.
-//
+/******************************************************************************
+**  Program name:  Game.cpp
+**  Author:        Derth Adams
+**  Date:          June 11, 2019
+**  Description:   Implementation file for the Game class, which implements the
+**                 higher-level game logic for the "Get Into Berghain" game.
+*******************************************************************************/
 
 #include <iostream>
 #include <fstream>
@@ -11,6 +15,13 @@
 #include "Store.hpp"
 #include "getMenuChoice.hpp"
 #include "Constants.hpp"
+
+/******************************************************************************
+** Function name: Game()
+** Description:   Constructor for the Game class. Instantiates all the Space
+**                objects, loads their contents from their data files using
+**                the load functions, and links them together.
+******************************************************************************/
 
 Game::Game()
 {
@@ -51,6 +62,13 @@ Game::Game()
     time = 0;
 }
 
+/******************************************************************************
+** Function name: ~Game()
+** Description:   Destructor for the Game class. Deletes the Space pointed to
+**                by the "here" pointer, which sets of a cascade of deletions
+**                implemented by each Space's destructor.
+******************************************************************************/
+
 Game::~Game()
 {
     if (here)
@@ -60,6 +78,15 @@ Game::~Game()
     }
     home = nullptr;
 }
+
+/******************************************************************************
+** Function name: walkNorth()
+** Description:   Moves the "here" pointer to the Space to the north and
+**                advances the time counter the appropriate amount - a shorter
+**                amount of time if you're going between a street and a store,
+**                and a longer amount of time if you're traveling between
+**                neighborhoods.
+******************************************************************************/
 
 void Game::walkNorth()
 {
@@ -77,6 +104,12 @@ void Game::walkNorth()
     }
 }
 
+/******************************************************************************
+** Function name: walkEast()
+** Description:   Moves the "here" pointer to the Space to the east and
+**                advances the time counter the appropriate amount.
+******************************************************************************/
+
 void Game::walkEast()
 {
     if (here->getEast())
@@ -85,6 +118,15 @@ void Game::walkEast()
         here = here->getEast();
     }
 }
+
+/******************************************************************************
+** Function name: walkSouth()
+** Description:   Moves the "here" pointer to the Space to the south and
+**                advances the time counter the appropriate amount - a shorter
+**                amount of time if you're going between a street and a store,
+**                and a longer amount of time if you're traveling between
+**                neighborhoods.
+******************************************************************************/
 
 void Game::walkSouth()
 {
@@ -102,6 +144,12 @@ void Game::walkSouth()
     }
 }
 
+/******************************************************************************
+** Function name: walkWest()
+** Description:   Moves the "here" pointer to the Space to the west and
+**                advances the time counter the appropriate amount.
+******************************************************************************/
+
 void Game::walkWest()
 {
     if (here->getWest())
@@ -110,6 +158,13 @@ void Game::walkWest()
         here = here->getWest();
     }
 }
+
+/******************************************************************************
+** Function name: driveNorth()
+** Description:   Moves the "here" pointer to the Space to the north,
+**                advances the time counter the appropriate amount, and
+**                deducts 10 Euros from the player's wallet for cab fare.
+******************************************************************************/
 
 void Game::driveNorth()
 {
@@ -120,6 +175,13 @@ void Game::driveNorth()
     }
 }
 
+/******************************************************************************
+** Function name: driveSouth()
+** Description:   Moves the "here" pointer to the Space to the south and
+**                advances the time counter the appropriate amount, and
+**                deducts 10 Euros from the player's wallet for cab fare.
+******************************************************************************/
+
 void Game::driveSouth()
 {
     if (here->getSouth())
@@ -128,6 +190,14 @@ void Game::driveSouth()
         here = here->getSouth();
     }
 }
+
+/******************************************************************************
+** Function name: start()
+** Description:   Main control loop for the game - called from main().
+**                Displays game title, asks user if they want to play,
+**                starts the game by calling play(), asks if user wants to
+**                play again.
+******************************************************************************/
 
 void Game::start()
 {
@@ -144,6 +214,17 @@ void Game::start()
     }
 
 }
+
+/******************************************************************************
+** Function name: play()
+** Description:   Controls gameplay for one iteration of the game. Displays
+**                the logline using logLine(), gives control over to the
+**                current Space object using Space::scene(), which returns
+**                the player's next move as a NextMove enum. Moves the "here"
+**                pointer to the next Space using one of the "walk" or "drive"
+**                functions, returns back to start() if Space::scene()
+**                returns "Exit".
+******************************************************************************/
 
 void Game::play()
 {
@@ -177,13 +258,11 @@ void Game::play()
             case DriveNorth:
             {
                 driveNorth();
-                wallet -= 10;
                 break;
             }
             case DriveSouth:
             {
                 driveSouth();
-                wallet -= 10;
                 break;
             }
             case Exit:
@@ -197,6 +276,13 @@ void Game::play()
         }
     }
 }
+
+/******************************************************************************
+** Function name: logline()
+** Description:   Displays a status logline indicating the current time,
+**                minutes left until all the stores close, the player's
+**                current location, and amount of cash left.
+******************************************************************************/
 
 void Game::logLine()
 {
@@ -220,6 +306,15 @@ void Game::logLine()
     std::cout << "Place:     " << here->getName() << "\n"
               << "Cash left: \u20AC" << wallet << "\n\n";
 }
+
+/******************************************************************************
+** Function name: loadStore(string)
+** Description:   Loads data about the store as well as attributes of each
+**                item in its inventory from a text file. Instantiates a
+**                Store object with the data and fills its inventory with
+**                dynamically created Item objects. Returns a Space pointer
+**                to the new Store object.
+******************************************************************************/
 
 Space* Game::loadStore(std::string filename)
 {
@@ -282,6 +377,13 @@ Space* Game::loadStore(std::string filename)
     return tempStore;
 }
 
+/******************************************************************************
+** Function name: loadStore(string)
+** Description:   Loads data about the club from a text file. Instantiates a
+**                Club object with the data and returns a Space pointer
+**                to the new Club object.
+******************************************************************************/
+
 Space* Game::loadClub(std::string filename)
 {
     std::string name,
@@ -310,6 +412,13 @@ Space* Game::loadClub(std::string filename)
             loseText, winText);
     return tempClub;
 }
+
+/******************************************************************************
+** Function name: loadStreet(string)
+** Description:   Loads data about the street from a text file. Instantiates a
+**                Street object with the data and returns a Space pointer
+**                to the new Street object.
+******************************************************************************/
 
 Space* Game::loadStreet(std::string filename)
 {

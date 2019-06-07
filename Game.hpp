@@ -1,6 +1,10 @@
-//
-// Created by Derth Adams on 2019-06-03.
-//
+/******************************************************************************
+**  Program name:  Game.cpp
+**  Author:        Derth Adams
+**  Date:          June 11, 2019
+**  Description:   Header file for the Game class, which implements the
+**                 higher-level game logic for the "Get Into Berghain" game.
+*******************************************************************************/
 
 #ifndef INC_162_FINAL_PROJECT_GAME_HPP
 #define INC_162_FINAL_PROJECT_GAME_HPP
@@ -12,11 +16,14 @@ class Game
 {
 private:
 
-    int time = 0;
-    int wallet = 200;
-    Outfit outfit;
-    Space* here{nullptr};
-    Space* home{nullptr};
+    int time = 0;           // Number of game-minutes elapsed
+    int wallet = 200;       // Number of Euros in the player's wallet
+    Outfit outfit;          // Outfit object containing clothing purchases
+    Space* here{nullptr};   // Pointer to the Space object the player is
+                            // currently in.
+    Space* home{nullptr};   // Pointer to the Space object representing
+                            // Berghain, the place where the game begins
+                            // and ends.
 public:
     Game();
     ~Game();

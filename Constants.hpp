@@ -1,6 +1,9 @@
-//
-// Created by Derth Adams on 2019-06-06.
-//
+/******************************************************************************
+**  Program name:  Constants.hpp
+**  Author:        Derth Adams
+**  Date:          June 11, 2019
+**  Description:   Contains the global constants used in the program.
+*******************************************************************************/
 
 #ifndef INC_162_FINAL_PROJECT_CONSTANTS_HPP
 #define INC_162_FINAL_PROJECT_CONSTANTS_HPP
