@@ -171,6 +171,7 @@ void Game::driveNorth()
     if (here->getNorth())
     {
         time += SHORT_TIME_STEP;
+        wallet -= 10;
         here = here->getNorth();
     }
 }
@@ -187,6 +188,7 @@ void Game::driveSouth()
     if (here->getSouth())
     {
         time += SHORT_TIME_STEP;
+        wallet -= 10;
         here = here->getSouth();
     }
 }
