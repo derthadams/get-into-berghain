@@ -92,7 +92,7 @@ void Game::walkNorth()
 {
     if (here->getNorth())
     {
-        if (here->getName() == "Kreuzberg Strasse")
+        if (here->getType() == street)
         {
             time += LONG_TIME_STEP;
         }
@@ -132,7 +132,7 @@ void Game::walkSouth()
 {
     if (here->getSouth())
     {
-        if (here->getName() == "Warschauer Strasse")
+        if (here->getType() == street)
         {
             time += LONG_TIME_STEP;
         }
