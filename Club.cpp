@@ -11,6 +11,7 @@
 #include <iostream>
 #include "Club.hpp"
 #include "getMenuChoice.hpp"
+#include "Constants.hpp"
 
 /******************************************************************************
 ** Function name: Club()
@@ -58,7 +59,7 @@ NextMove Club::scene(int& time, int& wallet, Outfit* outfit)
         }
         else
         {
-            if (time < 120)
+            if (time < TIME_LIMIT)
             {
                 std::cout << incompleteOutfitText;
                 std::cout  << "\n\n";
