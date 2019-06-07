@@ -90,22 +90,22 @@ SpaceType Space::getType()
     return type;
 }
 
-void Space::addItem(Item*)
-{
+//void Space::addItem(Item*)
+//{
+//
+//}
 
-}
+//bool Space::isOpen(int time)
+//{
+//    return false;
+//}
 
-bool Space::isOpen(int time)
-{
-    return false;
-}
-
-void Space::addClerkResponse(std::string const&)
-{
-
-}
-
-void Space::addPascalResponse(std::string const&)
-{
-
-}
+//void Space::addClerkResponse(std::string const&)
+//{
+//
+//}
+//
+//void Space::addPascalResponse(std::string const&)
+//{
+//
+//}

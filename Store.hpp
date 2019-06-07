@@ -26,13 +26,13 @@ public:
     ~Store() override;
     int getExitIndex();
     int getRandomNumber(int min, int max);
-    void addItem(Item* item) override;
-    void addClerkResponse(std::string const&) override;
-    void addPascalResponse(std::string const&) override;
+    void addItem(Item* item);
+    void addClerkResponse(std::string const&);
+    void addPascalResponse(std::string const&);
     NextMove scene(int& time, int& wallet, Outfit* outfit) override;
     void tryOn(int& wallet, Outfit* outfit, int index);
     void evaluate(Outfit* outfit, int index);
-    bool isOpen(int time) override;
+    bool isOpen(int time);
     void displayInventory();
     int mainMenu(int& time, int& wallet, Outfit*);
     void logLine(int time, int wallet);

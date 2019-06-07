@@ -350,13 +350,13 @@ Space* Game::loadStore(std::string filename)
     {
         std::getline(inputFile, response, '$');
         response.erase(response.begin());
-        tempStore->addClerkResponse(response);
+        dynamic_cast<Store*>(tempStore)->addClerkResponse(response);
     }
     for (int i = 0; i < 6; i++)
     {
         std::getline(inputFile, response, '$');
         response.erase(response.begin());
-        tempStore->addPascalResponse(response);
+        dynamic_cast<Store*>(tempStore)->addPascalResponse(response);
     }
 
     while (!inputFile.eof())
@@ -373,7 +373,7 @@ Space* Game::loadStore(std::string filename)
         inputFile >> styles[3];
 
         Item* tempItem = new Item(name, type, category, price, styles);
-        tempStore->addItem(tempItem);
+        dynamic_cast<Store*>(tempStore)->addItem(tempItem);
         tempItem = nullptr;
     }
     return tempStore;

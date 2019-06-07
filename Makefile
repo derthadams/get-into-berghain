@@ -15,7 +15,7 @@ main.o: Game.hpp
 
 Game.o: Game.hpp Club.hpp Street.hpp Store.hpp getMenuChoice.hpp
 
-Club.o: Club.hpp getMenuChoice.hpp
+Club.o: Club.hpp getMenuChoice.hpp Constants.hpp
 
 Item.o: Item.hpp
 
@@ -23,7 +23,7 @@ Outfit.o: Outfit.hpp Item.hpp
 
 Space.o: Space.hpp
 
-Street.o: Street.hpp getMenuChoice.hpp
+Street.o: Street.hpp getMenuChoice.hpp Store.hpp
 
 Store.o: Store.hpp getMenuChoice.hpp
 

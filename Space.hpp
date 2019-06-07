@@ -34,10 +34,10 @@ public:
     std::string getName();
     SpaceType getType();
     virtual NextMove scene(int& time, int& wallet, Outfit* outfit) = 0;
-    virtual void addItem(Item*);
-    virtual void addClerkResponse(std::string const&);
-    virtual void addPascalResponse(std::string const&);
-    virtual bool isOpen(int time);
+//    virtual void addItem(Item*);
+//    virtual void addClerkResponse(std::string const&);
+//    virtual void addPascalResponse(std::string const&);
+//    virtual bool isOpen(int time);
 };
 
 

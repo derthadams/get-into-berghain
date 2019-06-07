@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "Street.hpp"
+#include "Store.hpp"
 #include "getMenuChoice.hpp"
 
 Street::Street(std::string name, std::string introText,
@@ -73,13 +74,15 @@ NextMove Street::scene(int& time, int& wallet, Outfit* outfit)
                 }
                 numItems++;
             }
-            else if (neighbors[i]->getType() == store &&
-                     neighbors[i]->isOpen(time))
+            else if (neighbors[i]->getType() == store)
             {
-                std::cout << numItems << ". Visit ";
-                std::cout << neighbors[i]->getName() << "\n";
-                menuMap.push_back(i);
-                numItems++;
+                if(dynamic_cast<Store*>(neighbors[i])->isOpen(time))
+                {
+                    std::cout << numItems << ". Visit ";
+                    std::cout << neighbors[i]->getName() << "\n";
+                    menuMap.push_back(i);
+                    numItems++;
+                }
             }
             else if (neighbors[i]->getType() == club)
             {
