@@ -14,7 +14,6 @@
 #include "Street.hpp"
 #include "Store.hpp"
 #include "getMenuChoice.hpp"
-//#include "Constants.hpp"
 
 /******************************************************************************
 ** Function name: Game()
