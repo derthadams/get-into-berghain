@@ -1,24 +1,31 @@
-//
-// Created by Derth Adams on 2019-06-03.
-//
+/******************************************************************************
+**  Program name:  Space.hpp
+**  Author:        Derth Adams
+**  Date:          June 11, 2019
+**  Description:   Implementation file for the Space class, which is the
+**                 abstract base class representing the spaces the player
+**                 interacts with in the "Get Into Berghain" game.
+*******************************************************************************/
 
 #ifndef INC_162_FINAL_PROJECT_SPACE_HPP
 #define INC_162_FINAL_PROJECT_SPACE_HPP
 #include <string>
 #include "Outfit.hpp"
 
-enum SpaceType {club, store, street};
-enum NextMove {North = 0, East, South, West, DriveNorth, DriveSouth, Exit, Home};
+enum SpaceType {club, store, street};           // Subclass of the Space
+enum NextMove {North = 0, East, South, West,    // Enum used as the return
+        DriveNorth, DriveSouth, Exit, Home};    // value of Space::scene()
 
 class Space
 {
 protected:
-    Space* neighbors[4]{nullptr};
-    std::string name;
-    std::string introText;
-    std::string altIntroText;
-    SpaceType type;
-    bool visited = false;
+    Space* neighbors[4]{nullptr};   // Pointers to the four adjacent Spaces
+    std::string name;               // Name of the Space
+    std::string introText;          // Text displayed when the player arrives
+    std::string altIntroText;       // Intro text displayed under different
+                                    // circumstances
+    SpaceType type;                 // Subclass of the Space
+    bool visited = false;           // Has the player visited the Space before
 public:
     explicit Space(std::string name, std::string introText,
             std::string altIntroText);
@@ -35,10 +42,6 @@ public:
     SpaceType getType();
     virtual NextMove scene(int& time, int& wallet, Outfit* outfit) = 0;
     virtual void logLine(int time, int wallet);
-//    virtual void addItem(Item*);
-//    virtual void addClerkResponse(std::string const&);
-//    virtual void addPascalResponse(std::string const&);
-//    virtual bool isOpen(int time);
 };
 
 

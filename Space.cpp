@@ -1,10 +1,22 @@
-//
-// Created by Derth Adams on 2019-06-03.
-//
+/******************************************************************************
+**  Program name:  Space.cpp
+**  Author:        Derth Adams
+**  Date:          June 11, 2019
+**  Description:   Implementation file for the Space class, which is the
+**                 abstract base class representing the spaces the player
+**                 interacts with in the "Get Into Berghain" game.
+*******************************************************************************/
+
 #include <iostream>
 #include <utility>
 #include "Space.hpp"
 #include "Constants.hpp"
+
+/******************************************************************************
+** Function name: Space()
+** Description:   Constructor for the Space class. Sets member variables to
+**                their values.
+******************************************************************************/
 
 Space::Space(std::string name, std::string introText,
              std::string altIntroText) : name(std::move(name)),
@@ -12,6 +24,13 @@ Space::Space(std::string name, std::string introText,
              altIntroText(std::move(altIntroText))
 {
 }
+
+/******************************************************************************
+** Function name: ~Space()
+** Description:   Destructor for the Space class. If neighbors exist, sets
+**                the neighbor pointer referring to the Space to nullptr,
+**                then deletes the neighbor.
+******************************************************************************/
 
 Space::~Space()
 {
@@ -41,55 +60,84 @@ Space::~Space()
     }
 }
 
+// Getter for Space pointer in neighbors representing the Space to the north
+
 Space* Space::getNorth()
 {
     return neighbors[0];
 }
+
+// Getter for Space pointer in neighbors representing the Space to the east
 
 Space* Space::getEast()
 {
     return neighbors[1];
 }
 
+// Getter for Space pointer in neighbors representing the Space to the south
+
 Space* Space::getSouth()
 {
     return neighbors[2];
 }
+
+// Getter for Space pointer in neighbors representing the Space to the west
 
 Space* Space::getWest()
 {
     return neighbors[3];
 }
 
+// Setter for Space pointer in neighbors representing the Space to the north
+
 void Space::setNorth(Space* north)
 {
     neighbors[0] = north;
 }
+
+// Setter for Space pointer in neighbors representing the Space to the east
 
 void Space::setEast(Space* east)
 {
     neighbors[1] = east;
 }
 
+// Setter for Space pointer in neighbors representing the Space to the south
+
 void Space::setSouth(Space* south)
 {
     neighbors[2] = south;
 }
+
+// Setter for Space pointer in neighbors representing the Space to the west
 
 void Space::setWest(Space* west)
 {
     neighbors[3] = west;
 }
 
+// Getter for the Space's name
+
 std::string Space::getName()
 {
     return name;
 }
 
+// Getter for the Space's type
+
 SpaceType Space::getType()
 {
     return type;
 }
+
+/******************************************************************************
+** Function name: logline()
+** Description:   Takes in two ints representing the current time and the
+**                amount in the player's wallet.
+**                Displays a status logline indicating the current time,
+**                minutes left until all the stores close, the player's
+**                current location, and amount of cash left.
+*******************************************************************************/
 
 void Space::logLine(int time, int wallet)
 {
@@ -113,23 +161,3 @@ void Space::logLine(int time, int wallet)
     std::cout << "Place:     " << getName() << "\n"
               << "Cash left: \u20AC" << wallet << "\n\n";
 }
-
-//void Space::addItem(Item*)
-//{
-//
-//}
-
-//bool Space::isOpen(int time)
-//{
-//    return false;
-//}
-
-//void Space::addClerkResponse(std::string const&)
-//{
-//
-//}
-//
-//void Space::addPascalResponse(std::string const&)
-//{
-//
-//}
