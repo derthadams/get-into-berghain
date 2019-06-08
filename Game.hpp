@@ -11,13 +11,14 @@
 #include <array>
 #include "Space.hpp"
 #include "Item.hpp"
+#include "Constants.hpp"
 
 class Game
 {
 private:
 
     int time = 0;           // Number of game-minutes elapsed
-    int wallet = 200;       // Number of Euros in the player's wallet
+    int wallet = STARTING_EUROS;       // Number of Euros in the player's wallet
     Outfit outfit;          // Outfit object containing clothing purchases
     Space* here{nullptr};   // Pointer to the Space object the player is
                             // currently in.

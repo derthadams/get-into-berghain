@@ -4,6 +4,7 @@
 #include <iostream>
 #include <utility>
 #include "Space.hpp"
+#include "Constants.hpp"
 
 Space::Space(std::string name, std::string introText,
              std::string altIntroText) : name(std::move(name)),

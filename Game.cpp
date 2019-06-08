@@ -14,7 +14,7 @@
 #include "Street.hpp"
 #include "Store.hpp"
 #include "getMenuChoice.hpp"
-#include "Constants.hpp"
+//#include "Constants.hpp"
 
 /******************************************************************************
 ** Function name: Game()
@@ -163,7 +163,7 @@ void Game::walkWest()
 ** Function name: driveNorth()
 ** Description:   Moves the "here" pointer to the Space to the north,
 **                advances the time counter the appropriate amount, and
-**                deducts 10 Euros from the player's wallet for cab fare.
+**                deducts money from the player's wallet for cab fare.
 ******************************************************************************/
 
 void Game::driveNorth()
@@ -171,7 +171,7 @@ void Game::driveNorth()
     if (here->getNorth())
     {
         time += SHORT_TIME_STEP;
-        wallet -= 10;
+        wallet -= CAR_COST;
         here = here->getNorth();
     }
 }
@@ -180,7 +180,7 @@ void Game::driveNorth()
 ** Function name: driveSouth()
 ** Description:   Moves the "here" pointer to the Space to the south and
 **                advances the time counter the appropriate amount, and
-**                deducts 10 Euros from the player's wallet for cab fare.
+**                deducts money from the player's wallet for cab fare.
 ******************************************************************************/
 
 void Game::driveSouth()
@@ -188,7 +188,7 @@ void Game::driveSouth()
     if (here->getSouth())
     {
         time += SHORT_TIME_STEP;
-        wallet -= 10;
+        wallet -= CAR_COST;
         here = here->getSouth();
     }
 }
@@ -273,6 +273,7 @@ void Game::play()
             }
             case Home:
             {
+                time += SHORT_TIME_STEP;
                 here = home;
             }
         }
