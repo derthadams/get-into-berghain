@@ -1,6 +1,10 @@
-//
-// Created by Derth Adams on 2019-06-03.
-//
+/******************************************************************************
+**  Program name:  Outfit.hpp
+**  Author:        Derth Adams
+**  Date:          June 11, 2019
+**  Description:   Header file for the Outfit class, which represents
+**                 the collection of Items the player has purchased.
+*******************************************************************************/
 
 #ifndef INC_162_FINAL_PROJECT_SHOPPINGBAG_HPP
 #define INC_162_FINAL_PROJECT_SHOPPINGBAG_HPP
@@ -11,7 +15,8 @@
 class Outfit
 {
 private:
-    std::array <Item*, 4> clothes = {{nullptr}};
+    std::array <Item*, 4> clothes = {{nullptr}};    // Pointers to Items the
+                                                    // player has purchased
 public:
     ~Outfit();
     bool isComplete();
