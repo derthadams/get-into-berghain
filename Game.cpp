@@ -335,6 +335,7 @@ Space* Game::loadStore(std::string filename)
 
     std::ifstream inputFile(filename);
 
+    // Load strings necessary for the Store constructor
     std::getline(inputFile, name, '$');
     std::getline(inputFile, introText, '$');
     introText.erase(introText.begin());
@@ -345,14 +346,19 @@ Space* Game::loadStore(std::string filename)
                     clerkName.end());
     std::getline(inputFile, clerkDesc, '$');
 
+    // Instantiate the Store object
     tempStore = new Store(name, introText,altIntroText, clerkName, clerkDesc);
 
+    // Add clerk response strings (used after you try an item on. 3 positive
+    // and 3 negative)
     for (int i = 0; i < 6; i++)
     {
         std::getline(inputFile, response, '$');
         response.erase(response.begin());
         dynamic_cast<Store*>(tempStore)->addClerkResponse(response);
     }
+    // Add Pascal response strings (used after you try an item on. 3 positive
+    // and 3 negative)
     for (int i = 0; i < 6; i++)
     {
         std::getline(inputFile, response, '$');
@@ -360,19 +366,24 @@ Space* Game::loadStore(std::string filename)
         dynamic_cast<Store*>(tempStore)->addPascalResponse(response);
     }
 
+    // Load data for inventory items for the store
     while (!inputFile.eof())
     {
+        // Load strings for an item
         std::getline(inputFile, name, '$');
         name.erase(std::remove(name.begin(), name.end(), '\n'), name.end());
         std::getline(inputFile, type, '$');
         type.erase(std::remove(type.begin(), type.end(), '\n'), type.end());
+        // Load category and price integers
         inputFile >> category;
         inputFile >> price;
+        // Load the item's style vector
         inputFile >> styles[0];
         inputFile >> styles[1];
         inputFile >> styles[2];
         inputFile >> styles[3];
 
+        // Instantiate the Item and add it to the Store's inventory
         Item* tempItem = new Item(name, type, category, price, styles);
         dynamic_cast<Store*>(tempStore)->addItem(tempItem);
         tempItem = nullptr;
@@ -381,7 +392,7 @@ Space* Game::loadStore(std::string filename)
 }
 
 /******************************************************************************
-** Function name: loadStore(string)
+** Function name: loadClub(string)
 ** Description:   Loads data about the club from a text file. Instantiates a
 **                Club object with the data and returns a Space pointer
 **                to the new Club object.
@@ -399,6 +410,7 @@ Space* Game::loadClub(std::string filename)
 
     std::ifstream inputFile(filename);
 
+    // Load strings necessary for the Club constructor
     std::getline(inputFile, name, '$');
     std::getline(inputFile, introText, '$');
     introText.erase(introText.begin());
@@ -411,6 +423,7 @@ Space* Game::loadClub(std::string filename)
     std::getline(inputFile, winText, '$');
     winText.erase(winText.begin());
 
+    // Instantiate the Club
     tempClub = new Club (name, introText, altIntroText, incompleteOutfitText,
             loseText, winText);
     return tempClub;
@@ -432,12 +445,14 @@ Space* Game::loadStreet(std::string filename)
 
     std::ifstream inputFile(filename);
 
+    // Load strings necessary for Street constructor
     std::getline(inputFile, name, '$');
     std::getline(inputFile, introText, '$');
     introText.erase(introText.begin());
     std::getline(inputFile, altIntroText, '$');
     altIntroText.erase(altIntroText.begin());
 
+    // Instantiate the Street
     tempStreet = new Street (name, introText, altIntroText);
     return tempStreet;
 }
