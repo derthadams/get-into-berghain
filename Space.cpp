@@ -91,6 +91,29 @@ SpaceType Space::getType()
     return type;
 }
 
+void Space::logLine(int time, int wallet)
+{
+    std::cout << SEPARATOR;
+    std::cout << "Time:      " << START_HOUR + (time / 60) << ":";
+    if (time % 60 < 10)
+    {
+        std::cout << "0";
+    }
+    std::cout << (time % 60);
+    if (time >= 0 && time <= TIME_LIMIT)
+    {
+        std::cout  << " (" << TIME_LIMIT - time
+                   << " minutes left)\n";
+    }
+    else
+    {
+        std::cout <<
+                  " (Your time is up)" << "\n";
+    }
+    std::cout << "Place:     " << getName() << "\n"
+              << "Cash left: \u20AC" << wallet << "\n\n";
+}
+
 //void Space::addItem(Item*)
 //{
 //

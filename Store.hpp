@@ -35,7 +35,7 @@ public:
     bool isOpen(int time);
     void displayInventory();
     int mainMenu(int& time, int& wallet, Outfit*);
-    void logLine(int time, int wallet);
+    void logLine(int time, int wallet) override;
 };
 
 

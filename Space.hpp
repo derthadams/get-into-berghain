@@ -34,6 +34,7 @@ public:
     std::string getName();
     SpaceType getType();
     virtual NextMove scene(int& time, int& wallet, Outfit* outfit) = 0;
+    virtual void logLine(int time, int wallet);
 //    virtual void addItem(Item*);
 //    virtual void addClerkResponse(std::string const&);
 //    virtual void addPascalResponse(std::string const&);

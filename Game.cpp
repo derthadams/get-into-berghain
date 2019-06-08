@@ -233,7 +233,7 @@ void Game::play()
     NextMove next;
     while (true)
     {
-        logLine();
+        here->logLine(time, wallet);
         next = here->scene(time, wallet, &outfit);
         switch (next)
         {
@@ -280,35 +280,35 @@ void Game::play()
     }
 }
 
-/******************************************************************************
-** Function name: logline()
-** Description:   Displays a status logline indicating the current time,
-**                minutes left until all the stores close, the player's
-**                current location, and amount of cash left.
-******************************************************************************/
-
-void Game::logLine()
-{
-    std::cout << SEPARATOR;
-    std::cout << "Time:      " << START_HOUR + (time / 60) << ":";
-    if (time % 60 < 10)
-    {
-        std::cout << "0";
-    }
-    std::cout << (time % 60);
-    if (time >= 0 && time <= TIME_LIMIT)
-    {
-        std::cout  << " (" << TIME_LIMIT - time
-                  << " minutes left)\n";
-    }
-    else
-    {
-        std::cout <<
-            " (Your time is up)" << "\n";
-    }
-    std::cout << "Place:     " << here->getName() << "\n"
-              << "Cash left: \u20AC" << wallet << "\n\n";
-}
+///******************************************************************************
+//** Function name: logline()
+//** Description:   Displays a status logline indicating the current time,
+//**                minutes left until all the stores close, the player's
+//**                current location, and amount of cash left.
+//******************************************************************************/
+//
+//void Game::logLine()
+//{
+//    std::cout << SEPARATOR;
+//    std::cout << "Time:      " << START_HOUR + (time / 60) << ":";
+//    if (time % 60 < 10)
+//    {
+//        std::cout << "0";
+//    }
+//    std::cout << (time % 60);
+//    if (time >= 0 && time <= TIME_LIMIT)
+//    {
+//        std::cout  << " (" << TIME_LIMIT - time
+//                  << " minutes left)\n";
+//    }
+//    else
+//    {
+//        std::cout <<
+//            " (Your time is up)" << "\n";
+//    }
+//    std::cout << "Place:     " << here->getName() << "\n"
+//              << "Cash left: \u20AC" << wallet << "\n\n";
+//}
 
 /******************************************************************************
 ** Function name: loadStore(string)
