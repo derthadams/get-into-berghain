@@ -21,7 +21,7 @@ Item.o: Item.hpp
 
 Outfit.o: Outfit.hpp Item.hpp
 
-Space.o: Space.hpp
+Space.o: Space.hpp Constants.hpp
 
 Street.o: Street.hpp getMenuChoice.hpp Store.hpp
 
