@@ -1,6 +1,6 @@
 Darkstore$
-The tiny shop is packed from the floor to the bright-red ceiling with
-merchandise. The dominant color here is black, with a little red and white
+The tiny shop is packed from the raw concrete floor to the bright-red ceiling
+with merchandise. The dominant color here is black, with a little red and white
 thrown in. The store owner Lucretia approaches you and says hello.$
 Lucretia looks up from the cash register and says,
 "Well hello again, how can I help you?"$
