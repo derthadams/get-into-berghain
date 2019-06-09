@@ -8,9 +8,24 @@
 
 #include <iostream>
 #include "Game.hpp"
+#include "AsciiArt.hpp"
+#include "getMenuChoice.hpp"
 
-int main() {
-    Game fashiongame;
-    fashiongame.start();
-    return 0;
+int main()
+{
+    std::cout << SPLASH_SCREEN;
+    std::cout << TOP_DIVIDER;
+
+    int choice = getMenuChoice(PAD05 + "1. Play Game\n" + PAD05 + "2. Quit\n"
+                               + BOT_DIVIDER, 1, 2);
+    while (choice !=2)
+    {
+        Game fashiongame;
+        fashiongame.play();
+        std::cout << SPLASH_SCREEN;
+        std::cout << TOP_DIVIDER;
+        choice = getMenuChoice(PAD05 + "1. Play Again\n" + PAD05 + "2. Quit\n"
+                               + BOT_DIVIDER, 1, 2);
+    }
+
 }

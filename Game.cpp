@@ -201,27 +201,23 @@ void Game::driveSouth()
 **                play again.
 ******************************************************************************/
 
-void Game::start()
-{
-//    std::cout << "\n";
-//    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*\n";
-//    std::cout << "*_*  GET INTO BERGHAIN  *_*\n";
-//    std::cout << "*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
-    std::cout << SPLASH_SCREEN;
-    std::cout << TOP_DIVIDER;
-
-    int choice = getMenuChoice(PAD05 + "1. Play Game\n" + PAD05 + "2. Quit\n"
-            + BOT_DIVIDER, 1, 2);
-    while (choice !=2)
-    {
-        play();
-        std::cout << SPLASH_SCREEN;
-        std::cout << TOP_DIVIDER;
-        choice = getMenuChoice(PAD05 + "1. Play Again\n" + PAD05 + "2. Quit\n"
-                + BOT_DIVIDER, 1, 2);
-    }
-
-}
+//void Game::start()
+//{
+//    std::cout << SPLASH_SCREEN;
+//    std::cout << TOP_DIVIDER;
+//
+//    int choice = getMenuChoice(PAD05 + "1. Play Game\n" + PAD05 + "2. Quit\n"
+//            + BOT_DIVIDER, 1, 2);
+//    while (choice !=2)
+//    {
+//        play();
+//        std::cout << SPLASH_SCREEN;
+//        std::cout << TOP_DIVIDER;
+//        choice = getMenuChoice(PAD05 + "1. Play Again\n" + PAD05 + "2. Quit\n"
+//                + BOT_DIVIDER, 1, 2);
+//    }
+//
+//}
 
 /******************************************************************************
 ** Function name: play()

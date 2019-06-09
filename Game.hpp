@@ -34,7 +34,7 @@ public:
     void walkWest();
     void driveNorth();
     void driveSouth();
-    void start();
+//    void start();
     void play();
 //    void logLine();
     Space* loadStore(std::string filename);
