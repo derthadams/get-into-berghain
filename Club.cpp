@@ -12,6 +12,7 @@
 #include "Club.hpp"
 #include "getMenuChoice.hpp"
 #include "Constants.hpp"
+#include "AsciiArt.hpp"
 
 /******************************************************************************
 ** Function name: Club()
@@ -49,11 +50,21 @@ NextMove Club::scene(int& time, int& wallet, Outfit* outfit)
             if (outfit->isHot())
             {
                 std::cout << winText;
+                std::cout  << "\n\n";
+                std::cout << TOP_DIVIDER;
+                int choice = getMenuChoice(
+                        "     Enter 1 to exit\n"
+                        + BOT_DIVIDER, 1, 1);
                 return Exit;
             }
             else
             {
                 std::cout << loseText;
+                std::cout  << "\n\n";
+                std::cout << TOP_DIVIDER;
+                int choice = getMenuChoice(
+                        "     Enter 1 to exit\n"
+                        + BOT_DIVIDER, 1, 1);
                 return Exit;
             }
         }
@@ -63,8 +74,10 @@ NextMove Club::scene(int& time, int& wallet, Outfit* outfit)
             {
                 std::cout << incompleteOutfitText;
                 std::cout  << "\n\n";
-                std::cout << "Enter 1 to continue your journey\n";
-                int choice = getMenuChoice("", 1, 1);
+                std::cout << TOP_DIVIDER;
+                int choice = getMenuChoice(
+                        "     Enter 1 to continue your journey\n"
+                        + BOT_DIVIDER, 1, 1);
                 return West;
             }
             else
@@ -79,8 +92,9 @@ NextMove Club::scene(int& time, int& wallet, Outfit* outfit)
         std::cout << introText;
         std::cout  << "\n\n";
         visited = true;
-        std::cout << "Enter 1 to begin your journey\n";
-        int choice = getMenuChoice("", 1, 1);
+        std::cout << TOP_DIVIDER;
+        int choice = getMenuChoice("     Enter 1 to begin your journey\n"
+                                   + BOT_DIVIDER, 1, 1);
         return West;
     }
 }

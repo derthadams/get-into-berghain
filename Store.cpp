@@ -10,6 +10,7 @@
 #include "Store.hpp"
 #include "getMenuChoice.hpp"
 #include "Constants.hpp"
+#include "AsciiArt.hpp"
 
 Store::Store(std::string name, std::string introText,
              std::string altIntroText, std::string clerkName,
@@ -62,7 +63,7 @@ NextMove Store::scene(int& time, int& wallet, Outfit* outfit)
     int choice = 0;
     choice = mainMenu(time, wallet, outfit);
 
-    while (choice != inventory.size() + 2)
+    while (choice < inventory.size() + 2)
     {
         logLine(time, wallet);
         if (outfit->isComplete())
@@ -79,12 +80,19 @@ NextMove Store::scene(int& time, int& wallet, Outfit* outfit)
             choice = mainMenu(time, wallet, outfit);
         }
     }
-    return static_cast<NextMove>(getExitIndex());
+    if (choice == inventory.size() + 2)
+    {
+        return static_cast<NextMove>(getExitIndex());
+    }
+    else if (choice == inventory.size() + 3)
+    {
+        return Exit;
+    }
 }
 
 void Store::tryOn(int& wallet, Outfit* outfit, int index)
 {
-    std::cout << SEPARATOR;
+//    std::cout << SEPARATOR;
     switch (inventory[index]->category)
     {
         case 0:
@@ -92,14 +100,14 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
             std::cout << "You slip out of your tired old shoes and put on the "
                       << inventory[index]->type << ".\n"
                       << "You take a few steps and twirl around as Pascal and "
-                      << clerkName << " examine you closely.\n\n";
+                      << clerkName << "\n" << "examine you closely.\n\n";
             break;
         }
         case 3:
         {
             std::cout << "You put on the " << inventory[index]->type
                       << " and walk over to the mirror to have a look.\n"
-                         "You glance back at Pascal and "
+                      << "You glance back at Pascal and "
                       << clerkName << ".\n\n";
             break;
         }
@@ -108,58 +116,60 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
             std::cout << "You take the " << inventory[index]->type
                       << " back to the dressing room and put "
                       << inventory[index]->pronoun() << " on.\n"
-                         "As you emerge, Pascal and "
+                      << "As you emerge, Pascal and "
                       << clerkName
                       << " are waiting to deliver their verdict.\n\n";
         }
     }
     evaluate(outfit, index);
-
-    int choice = getMenuChoice("1. Buy the " + inventory[index]->type +
-            "\n2. Put " + inventory[index]->pronoun() + " back.\n\n", 1, 2);
+    std::cout << TOP_DIVIDER;
+    int choice = getMenuChoice(PAD05 + "1. Buy the " + inventory[index]->type +
+            "\n" + PAD05 + "2. Put " + inventory[index]->pronoun() + " back.\n"
+            + BOT_DIVIDER, 1, 2);
     switch (choice)
     {
         case 1:
         {
             if (inventory[index]->price <= wallet)
             {
-                if (outfit->addItem(inventory.at(index)))
-                {
-                    std::cout << SEPARATOR;
-                    std::cout << "You say, \"I'll take "
+                    outfit->addItem(inventory.at(index));
+                    std::cout << TOP_DIAL;
+                    std::cout << PAD05 << "You say, \"I'll take "
                               << inventory[index]->pronoun() << "! "
                               << "Can I just keep "
                               << inventory[index]->pronoun() << " on?\"\n"
-                              << clerkName
-                              << " says, \"As you wish.\"\nYou hand over the "
-                                 "\u20AC" << inventory[index]->price << ".\n\n";
+                              << PAD05 << clerkName
+                              << " says, \"As you wish.\"\n"
+                              << PAD05 << "You hand over the "
+                                 "\u20AC" << inventory[index]->price << ".\n";
                     wallet -= inventory[index]->price;
+                    std::cout << BOT_DIAL<< "\n";
                     inventory.erase(inventory.begin() + index);
-                }
-                else
-                {
-                    switch (index)
-                    {
-                        case 0:
-                        {
-                            std::cout << "You've already purchased shoes!\n";
-                            break;
-                        }
-                        case 3:
-                        {
-                            std::cout
-                            << "You've already purchased an accessory!\n";
-                            break;
-                        }
-                        default:
-                        {
-                            std::cout << "You've already purchased a "
-                                      << categories[inventory[index]->category]
-                                      << "!\n";
-                            break;
-                        }
-                    }
-                }
+//                }
+//                else
+//                {
+//                    switch (index)
+//                    {
+//                        case 0:
+//                        {
+//                            std::cout << "You've already purchased shoes!\n";
+//                            break;
+//                        }
+//                        case 3:
+//                        {
+//                            std::cout
+//                            << "You've already purchased an accessory!\n";
+//                            break;
+//                        }
+//                        default:
+//                        {
+//                            std::cout << "You've already purchased a "
+//                                      << categories[inventory[index]->category]
+//                                      << "!\n";
+//                            break;
+//                        }
+//                    }
+//                }
             }
             else
             {
@@ -210,8 +220,8 @@ void Store::evaluate(Outfit* outfit, int index)
     {
         rightAnswer = (inventory[index]->strongestStyle()
                         == outfit->strongestStyle());
-        std::cout << "Strongest style index so far: "
-                  << outfit->strongestStyle() << "\n";
+//        std::cout << "Strongest style index so far: "
+//                  << outfit->strongestStyle() << "\n";
     }
     if (randNum < 75)
     {
@@ -219,11 +229,11 @@ void Store::evaluate(Outfit* outfit, int index)
         std::cout << "Pascal says, \"";
         if (rightAnswer)
         {
-            std::cout << pascalResponse.at(response) << "\"\n\n";
+            std::cout << pascalResponse.at(response) << "\"\n";
         }
         else
         {
-            std::cout << pascalResponse.at(response + 3) << "\"\n\n";
+            std::cout << pascalResponse.at(response + 3) << "\"\n";
         }
     }
     else
@@ -232,14 +242,14 @@ void Store::evaluate(Outfit* outfit, int index)
         std::cout << "Pascal exclaims, \"";
         if (rightAnswer)
         {
-            std::cout << pascalResponse.at(response + 3) << "\"\n\n";
+            std::cout << pascalResponse.at(response + 3) << "\"\n";
         }
         else
         {
-            std::cout << pascalResponse.at(response) << "\"\n\n";
+            std::cout << pascalResponse.at(response) << "\"\n";
         }
     }
-
+    std::cout << "\n";
 }
 
 void Store::addItem(Item* item)
@@ -281,9 +291,9 @@ void Store::displayInventory()
         {
 
             categoryIndex = inventory.at(i)->category;
-            std::cout << "\n** " << categories[categoryIndex] << " **\n";
+            std::cout << CAT_HEAD[categoryIndex];
         }
-        std::cout << std::left << std::setw(5) << std::to_string(i + 1) + "."
+        std::cout << PAD03 << std::left << std::setw(5) << std::to_string(i + 1) + "."
                   << std::setw(62)
                   << inventory.at(i)->name << std::setw(5)
                   << "   (\u20AC" << inventory.at(i)->price << ")\n";
@@ -294,42 +304,47 @@ void Store::displayInventory()
 int Store::mainMenu(int& time, int& wallet, Outfit* outfit)
 {
     int choice;
-    std::cout << "What would you like to do?\n\n";
-    std::cout << "To try on an item, enter the item's number.\n";
-    std::cout << inventory.size() + 1
+//    std::cout << "What would you like to do?\n\n";
+    std::cout << TOP_DIVIDER;
+    std::cout << PAD05 << "To try on an item, enter the item's number.\n\n";
+    std::cout << PAD05 << inventory.size() + 1
               << ". Review what you're wearing now\n";
-    std::cout << inventory.size() + 2
+    std::cout << PAD05 << inventory.size() + 2
               << ". Exit store\n";
-    choice = getMenuChoice("", 1, static_cast<int>(inventory.size()) + 2);
+    std::cout << PAD05 << inventory.size() + 3
+              << ". Quit Game\n";
+    std::cout << BOT_DIVIDER;
+    choice = getMenuChoice("", 1, static_cast<int>(inventory.size()) + 3);
     if (choice <= inventory.size())
     {
         int categoryIndex = inventory[choice - 1]->category;
         if (outfit->isCategoryTaken(categoryIndex))
         {
-            std::cout << SEPARATOR;
+            std::cout << TOP_DIAL;
             switch (categoryIndex)
             {
                 case 0:
                 {
-                    std::cout << "You've already purchased shoes!\n";
+                    std::cout << PAD05 << "You've already purchased shoes!\n";
                     break;
                 }
                 case 3:
                 {
                     std::cout
-                            << "You've already purchased an accessory!\n";
+                            << PAD05 << "You've already purchased an accessory!\n";
                     break;
                 }
                 default:
                 {
-                    std::cout << "You've already purchased a "
+                    std::cout << PAD05 << "You've already purchased a "
                               << categories[categoryIndex]
                               << "!\n";
                     break;
                 }
             }
             std::cout
-                    << "Try selecting something from a different category.\n\n";
+                    << PAD05 << "Try selecting something from a different category.\n"
+                    << BOT_DIAL << "\n";
         }
         else
         {
@@ -339,7 +354,7 @@ int Store::mainMenu(int& time, int& wallet, Outfit* outfit)
     }
     else if (choice == inventory.size() + 1)
     {
-        std::cout << SEPARATOR;
+//        std::cout << SEPARATOR;
         outfit->areWearing();
     }
     return choice;
@@ -347,8 +362,8 @@ int Store::mainMenu(int& time, int& wallet, Outfit* outfit)
 
 void Store::logLine(int time, int wallet)
 {
-    std::cout << SEPARATOR;
-    std::cout << "Time:      " << START_HOUR + (time / 60) << ":";
+    std::cout << DINGBAT << std::left << std::setw(11) << "Time:"
+              << std::setw(2) << START_HOUR + (time / 60) << ":";
     if (time % 60 < 10)
     {
         std::cout << "0";
@@ -357,19 +372,31 @@ void Store::logLine(int time, int wallet)
     if (time >= 0 && time < TIME_LIMIT)
     {
         std::cout  << " (" << TIME_LIMIT - time
-                   << " minutes left)\n";
+                   << " minutes left)  ";
+        if (TIME_LIMIT - time < 100)
+        {
+            std::cout << " ";
+            if (TIME_LIMIT - time < 10)
+                std::cout << " ";
+        }
+        std::cout << BATDING;
     }
     else
     {
         std::cout <<
-                  " (Your time is up)" << "\n";
+                  " (Your time is up!)  " << BATDING;
     }
-    std::cout << "Place:     " << name << "\n"
-              << "Cash left: \u20AC" << wallet << "\n\n";
+    std::cout << DINGBAT << std::setw(11) << "Place:     "
+              << std::setw(26) << getName() << BATDING
+              << DINGBAT << std::setw(11) << "Cash left: "
+              << std::setw(1) << "\u20AC" << std::setw(25)
+              << wallet << BATDING << "\n";
     if (time >= TIME_LIMIT)
     {
-        std::cout << clerkName
-                  << " says, \"The store is now closed, but you can keep "
-                     "looking if you want.\"\n\n";
+        std::cout << TOP_DIAL;
+        std::cout << PAD10 << clerkName
+                  << " says, \"The store is now closed, but you can keep\n"
+                  << PAD10 << "looking if you want.\"\n";
+        std::cout << BOT_DIAL << "\n";
     }
 }

@@ -10,6 +10,8 @@
 #include <iomanip>
 #include "Outfit.hpp"
 #include "Item.hpp"
+#include "AsciiArt.hpp"
+#include "getMenuChoice.hpp"
 
 /******************************************************************************
 ** Function name: ~Outfit()
@@ -142,15 +144,19 @@ bool Outfit::isHot()
 
 void Outfit::areWearing()
 {
-    std::cout << "*** What you're wearing now ***\n";
-    std::cout << std::left << std::setw(12) << "Shoes:"
+    int choice;
+    std::cout << "                            What you're wearing now:\n\n";
+    std::cout << TOP_DIAL;
+    std::cout << PAD05 << std::left << std::setw(12) << "Shoes:"
               << getItemName(0) << "\n";
-    std::cout << std::left << std::setw(12) << "Bottom:"
+    std::cout << PAD05 << std::left << std::setw(12) << "Bottom:"
               << getItemName(1) << "\n";
-    std::cout << std::left << std::setw(12) << "Top:"
+    std::cout << PAD05 << std::left << std::setw(12) << "Top:"
               << getItemName(2) << "\n";
-    std::cout << std::left << std::setw(12) << "Accessory:"
-              << getItemName(3) << "\n\n";
+    std::cout << PAD05 << std::left << std::setw(12) << "Accessory:"
+              << getItemName(3) << "\n";
+    std::cout << BOT_DIAL << "\n\n";
+    choice = getMenuChoice("\nEnter 1 to continue:", 1, 100);
 }
 
 /******************************************************************************

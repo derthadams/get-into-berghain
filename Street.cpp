@@ -6,6 +6,7 @@
 #include "Street.hpp"
 #include "Store.hpp"
 #include "getMenuChoice.hpp"
+#include "AsciiArt.hpp"
 
 Street::Street(std::string name, std::string introText,
         std::string altIntroText) : Space::Space(std::move(name),
@@ -49,6 +50,7 @@ NextMove Street::scene(int& time, int& wallet, Outfit* outfit)
     std::cout  << "\n\n";
     visited = true;
 
+    std::cout << TOP_DIVIDER;
     int numItems = 1;
     std::vector<int> menuMap;
     for (int i = 0; i < 4; i++)
@@ -57,12 +59,12 @@ NextMove Street::scene(int& time, int& wallet, Outfit* outfit)
         {
             if (neighbors[i]->getType() == street)
             {
-                std::cout << numItems << ". Walk to ";
+                std::cout << PAD05 << numItems << ". Walk to ";
                 std::cout << neighbors[i]->getName() << "\n";
                 menuMap.push_back(i);
                 numItems++;
 
-                std::cout << numItems << ". Drive to ";
+                std::cout << PAD05 << numItems << ". Drive to ";
                 std::cout << neighbors[i]->getName() << "\n";
                 if (i == 0)
                 {
@@ -78,7 +80,7 @@ NextMove Street::scene(int& time, int& wallet, Outfit* outfit)
             {
                 if(dynamic_cast<Store*>(neighbors[i])->isOpen(time))
                 {
-                    std::cout << numItems << ". Visit ";
+                    std::cout << PAD05 << numItems << ". Visit ";
                     std::cout << neighbors[i]->getName() << "\n";
                     menuMap.push_back(i);
                     numItems++;
@@ -86,14 +88,15 @@ NextMove Street::scene(int& time, int& wallet, Outfit* outfit)
             }
             else if (neighbors[i]->getType() == club)
             {
-                std::cout << numItems << ". Go back to Berghain\n";
+                std::cout << PAD05 << numItems << ". Go back to Berghain\n";
                 menuMap.push_back(i);
                 numItems++;
             }
         }
     }
-    std::cout << numItems << ". Quit Game\n";
+    std::cout << PAD05 << numItems << ". Quit Game\n";
     menuMap.push_back(6);
+    std::cout << BOT_DIVIDER;
     int choice = getMenuChoice("", 1, numItems);
     return static_cast<NextMove>(menuMap[choice - 1]);
 }

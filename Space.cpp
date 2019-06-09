@@ -8,9 +8,11 @@
 *******************************************************************************/
 
 #include <iostream>
+#include <iomanip>
 #include <utility>
 #include "Space.hpp"
 #include "Constants.hpp"
+#include "AsciiArt.hpp"
 
 /******************************************************************************
 ** Function name: Space()
@@ -141,8 +143,8 @@ SpaceType Space::getType()
 
 void Space::logLine(int time, int wallet)
 {
-    std::cout << SEPARATOR;
-    std::cout << "Time:      " << START_HOUR + (time / 60) << ":";
+    std::cout << DINGBAT << std::left << std::setw(11) << "Time:"
+              << std::setw(2) << START_HOUR + (time / 60) << ":";
     if (time % 60 < 10)
     {
         std::cout << "0";
@@ -151,13 +153,24 @@ void Space::logLine(int time, int wallet)
     if (time >= 0 && time <= TIME_LIMIT)
     {
         std::cout  << " (" << TIME_LIMIT - time
-                   << " minutes left)\n";
+                   << " minutes left)  ";
+        if (TIME_LIMIT - time < 100)
+        {
+            std::cout << " ";
+            if (TIME_LIMIT - time < 10)
+                std::cout << " ";
+        }
+        std::cout << BATDING;
     }
     else
     {
         std::cout <<
-                  " (Your time is up)" << "\n";
+                  " (Your time is up!)  " << BATDING;
     }
-    std::cout << "Place:     " << getName() << "\n"
-              << "Cash left: \u20AC" << wallet << "\n\n";
+    std::cout << DINGBAT << std::setw(11) << "Place:     "
+              << std::setw(26) << getName() << BATDING
+              << DINGBAT << std::setw(11) << "Cash left: "
+              << std::setw(1) << "\u20AC" << std::setw(25)
+              << wallet << BATDING << "\n";
+
 }

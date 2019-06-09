@@ -15,7 +15,7 @@ const int SHORT_TIME_STEP = 5;  // How many minutes each move takes (short)
 const int LONG_TIME_STEP = 20;  // How many minutes each move takes (long)
 const int CAR_COST = 10;        // Amount of Euros taking a car costs
 const int STARTING_EUROS = 200; // Amount of money in Euros you start with
-const std::string SEPARATOR     // Special character string separating each move
-                  = "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
+//const std::string SEPARATOR     // Special character string separating each move
+//                  = "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n\n";
 
 #endif //INC_162_FINAL_PROJECT_CONSTANTS_HPP
