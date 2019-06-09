@@ -173,23 +173,23 @@ void Store::tryOn(int& wallet, Outfit* outfit, int index)
             }
             else
             {
-                std::cout << "You look in your wallet and realize you can't "
-                             "afford\nthe " << inventory[index]->type
-                          << ". Sheepishly you take "
+                std::cout << TOP_DIAL << PAD05 << "You look in your wallet and realize you can't "
+                             "afford\n" << PAD05 <<"the " << inventory[index]->type
+                          << ".\n" << PAD05 << "Sheepishly you take "
                           << inventory[index]->pronoun()
                           << " off and hand " << inventory[index]->pronoun()
                           << " back to "
-                          << clerkName << ".\n\n";
+                          << clerkName << ".\n" << BOT_DIAL << "\n";
             }
             break;
         }
         case 2:
         {
-            std::cout << SEPARATOR;
+            std::cout << TOP_DIAL << PAD05;
             std::cout << "You say, \"I don't think it's my style\", as you hand "
-                         "the " << inventory[index]->type
+                         "the\n" << PAD05 << inventory[index]->type
                          << " back to "
-                         << clerkName << ".\n\n";
+                         << clerkName << ".\n" << BOT_DIAL << "\n";
             break;
         }
     }

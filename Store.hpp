@@ -18,7 +18,7 @@ private:
     std::vector <std::string> clerkResponse;
     std::vector <std::string> pascalResponse;
     const std::string categories[4] =
-            {"Shoes", "Bottoms", "Tops", "Accessories"};
+            {"Shoes", "Bottom", "Top", "Accessories"};
 public:
     Store(std::string name, std::string introText,
           std::string altIntroText, std::string clerkName,
