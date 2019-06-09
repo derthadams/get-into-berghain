@@ -54,7 +54,7 @@ NextMove Club::scene(int& time, int& wallet, Outfit* outfit)
                 std::cout << TOP_DIVIDER;
                 int choice = getMenuChoice(
                         "     Enter 1 to exit\n"
-                        + BOT_DIVIDER, 1, 1);
+                        + BOT_DIVIDER, 1, 100);
                 return Exit;
             }
             else
@@ -64,7 +64,7 @@ NextMove Club::scene(int& time, int& wallet, Outfit* outfit)
                 std::cout << TOP_DIVIDER;
                 int choice = getMenuChoice(
                         "     Enter 1 to exit\n"
-                        + BOT_DIVIDER, 1, 1);
+                        + BOT_DIVIDER, 1, 100);
                 return Exit;
             }
         }
@@ -77,7 +77,7 @@ NextMove Club::scene(int& time, int& wallet, Outfit* outfit)
                 std::cout << TOP_DIVIDER;
                 int choice = getMenuChoice(
                         "     Enter 1 to continue your journey\n"
-                        + BOT_DIVIDER, 1, 1);
+                        + BOT_DIVIDER, 1, 100);
                 return West;
             }
             else
@@ -94,7 +94,7 @@ NextMove Club::scene(int& time, int& wallet, Outfit* outfit)
         visited = true;
         std::cout << TOP_DIVIDER;
         int choice = getMenuChoice("     Enter 1 to begin your journey\n"
-                                   + BOT_DIVIDER, 1, 1);
+                                   + BOT_DIVIDER, 1, 100);
         return West;
     }
 }
