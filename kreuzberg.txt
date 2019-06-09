@@ -2,12 +2,14 @@ Kreuzberg Strasse$
 The street is alive with hipsters wandering in packs between the restaurants,
 bars and clubs. You notice two clothing stores on the block:
 
-Slacks Fashion
+                          ║  Slacks Fashion  ║
+
 Above the red wood-paneled facade hangs a sign with the name of the store in
 elegant script. In the window display you see a knee-length dress with
 lace-edged panels and some top hats.
 
-Pink Cadillac
+                           ║  Pink Cadillac  ║
+
 Behind the baby-blue facade you see a busy display with bright neon-colored
 clothes bathed in blacklight.
 

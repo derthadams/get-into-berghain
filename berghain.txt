@@ -1,18 +1,18 @@
 The front of Berghain$
 The last rays of the setting sun outline a huge, dark industrial building.
-Multicolored lights flash in the windows of the upper floors. You approach the
-club as the muffled thump of techno music shakes the sidewalk. You spot your
-best friend Pascal, who runs up, lets out a cheery “hey gurrl!” and gives you
-a hug.
+Multicolored lights flash in the windows of the upper floors as the muffled
+thump of techno music shakes the sidewalk. This is the most exclusive nightclub
+in the world, and you’re dying to get in!
 
-This is the most exclusive nightclub in the world, and you’re dying to get in!
+You spot your best friend Pascal, who runs up, lets out a cheery “hey gurrl!”
+and gives you a hug.
 
-Behind a velvet rope stands Sven, a large tattooed and bearded man with
-facial piercings wearing head-to-toe leather and sunglasses.
+Behind a velvet rope stands the doorman Sven, a large tattooed and bearded man
+with facial piercings wearing head-to-toe leather. You and Pascal approach
+with awe.
 
-You and Pascal approach Sven with awe. Before you can say a word he looks
-down at you and says “Your friend can come in but I’m sorry, you’re not getting
-in dressed like that”.
+Before you can say a word Sven looks down at you and says “Your friend
+can come in but I’m sorry, you’re not getting in dressed like that”.
 
 Shattered, you share a quick glance with Pascal, then turn and walk away from
 the club.
@@ -31,7 +31,7 @@ Can you trust your own?
 
 Most importantly, can you…
 
-Get Into Berghain?$
+GET INTO BERGHAIN?$
 You can barely see out the outline of the giant club in front of the hazy night
 sky. The music is louder, and you catch silhouettes of dancers in the windows.
 The party's really heating up!
@@ -65,6 +65,5 @@ You grasp the door handle and pull.
 No matter what failures you've had in your life, no matter how worthless you
 may feel, at least you have this:
 
-You Got Into Berghain!
-
+You GOT INTO BERGHAIN!
 $
