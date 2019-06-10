@@ -103,6 +103,7 @@ NextMove Store::scene(int& time, int& wallet, Outfit* outfit)
     while (choice < inventory.size() + 2)
     {
         logLine(time, wallet);
+        // If the outfit is complete, jump back to Berghain
         if (outfit->isComplete())
         {
             std::cout << "Pascal says, \"Honey, your outfit is complete! "
@@ -110,6 +111,7 @@ NextMove Store::scene(int& time, int& wallet, Outfit* outfit)
             choice = getMenuChoice("1. Exit store\n", 1, 100);
             return Home;
         }
+        // If the outfit isn't complete, display the store inventory
         else
         {
             std::cout << "Available Items: \n";
