@@ -157,7 +157,8 @@ void Outfit::areWearing()
               << getItemName(3) << "\n";
     std::cout << BOT_DIAL << "\n\n";
     std::cout << TOP_DIVIDER;
-    choice = getMenuChoice(PAD05 + "Enter 1 to continue:\n" + BOT_DIVIDER, 1, 100);
+    choice = getMenuChoice(PAD05 + "Enter 1 to continue:\n"
+            + BOT_DIVIDER, 1, 100);
 }
 
 /******************************************************************************

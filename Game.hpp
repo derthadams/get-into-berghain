@@ -34,9 +34,7 @@ public:
     void walkWest();
     void driveNorth();
     void driveSouth();
-//    void start();
     void play();
-//    void logLine();
     Space* loadStore(std::string filename);
     Space* loadClub(std::string filename);
     Space* loadStreet(std::string filename);

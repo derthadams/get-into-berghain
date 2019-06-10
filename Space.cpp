@@ -172,5 +172,4 @@ void Space::logLine(int time, int wallet)
               << DINGBAT << std::setw(11) << "Cash left: "
               << std::setw(1) << "\u20AC" << std::setw(25)
               << wallet << BATDING << "\n";
-
 }

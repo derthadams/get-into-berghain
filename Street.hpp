@@ -1,6 +1,12 @@
-//
-// Created by Derth Adams on 2019-06-03.
-//
+/******************************************************************************
+**  Program name:  Street.hpp
+**  Author:        Derth Adams
+**  Date:          June 11, 2019
+**  Description:   Header file for the Street class, a derived class of
+**                 Space. Represents a street the player must pass through
+**                 on their way between other Spaces like the club and the
+**                 four Stores.
+*******************************************************************************/
 
 #ifndef INC_162_FINAL_PROJECT_STREET_HPP
 #define INC_162_FINAL_PROJECT_STREET_HPP

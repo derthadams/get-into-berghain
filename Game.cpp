@@ -194,32 +194,6 @@ void Game::driveSouth()
 }
 
 /******************************************************************************
-** Function name: start()
-** Description:   Main control loop for the game - called from main().
-**                Displays game title, asks user if they want to play,
-**                starts the game by calling play(), asks if user wants to
-**                play again.
-******************************************************************************/
-
-//void Game::start()
-//{
-//    std::cout << SPLASH_SCREEN;
-//    std::cout << TOP_DIVIDER;
-//
-//    int choice = getMenuChoice(PAD05 + "1. Play Game\n" + PAD05 + "2. Quit\n"
-//            + BOT_DIVIDER, 1, 2);
-//    while (choice !=2)
-//    {
-//        play();
-//        std::cout << SPLASH_SCREEN;
-//        std::cout << TOP_DIVIDER;
-//        choice = getMenuChoice(PAD05 + "1. Play Again\n" + PAD05 + "2. Quit\n"
-//                + BOT_DIVIDER, 1, 2);
-//    }
-//
-//}
-
-/******************************************************************************
 ** Function name: play()
 ** Description:   Controls gameplay for one iteration of the game. Displays
 **                the logline using logLine(), gives control over to the
@@ -281,36 +255,6 @@ void Game::play()
         }
     }
 }
-
-///******************************************************************************
-//** Function name: logline()
-//** Description:   Displays a status logline indicating the current time,
-//**                minutes left until all the stores close, the player's
-//**                current location, and amount of cash left.
-//******************************************************************************/
-//
-//void Game::logLine()
-//{
-//    std::cout << SEPARATOR;
-//    std::cout << "Time:      " << START_HOUR + (time / 60) << ":";
-//    if (time % 60 < 10)
-//    {
-//        std::cout << "0";
-//    }
-//    std::cout << (time % 60);
-//    if (time >= 0 && time <= TIME_LIMIT)
-//    {
-//        std::cout  << " (" << TIME_LIMIT - time
-//                  << " minutes left)\n";
-//    }
-//    else
-//    {
-//        std::cout <<
-//            " (Your time is up)" << "\n";
-//    }
-//    std::cout << "Place:     " << here->getName() << "\n"
-//              << "Cash left: \u20AC" << wallet << "\n\n";
-//}
 
 /******************************************************************************
 ** Function name: loadStore(string)

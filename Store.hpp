@@ -1,6 +1,11 @@
-//
-// Created by Derth Adams on 2019-06-03.
-//
+/******************************************************************************
+**  Program name:  Store.hpp
+**  Author:        Derth Adams
+**  Date:          June 11, 2019
+**  Description:   Header file for the Store class, which is a
+**                 derived class of Space. Represents one of the stores the
+**                 player is shopping in.
+*******************************************************************************/
 
 #ifndef INC_162_FINAL_PROJECT_STORE_HPP
 #define INC_162_FINAL_PROJECT_STORE_HPP
@@ -12,12 +17,14 @@
 class Store : public Space
 {
 private:
-    std::vector <Item*> inventory;
-    std::string clerkName;
-    std::string clerkDescription;
-    std::vector <std::string> clerkResponse;
-    std::vector <std::string> pascalResponse;
-    const std::string categories[4] =
+    std::vector <Item*> inventory;  // Store's inventory of Item objects
+    std::string clerkName;          // Name of Store's clerk
+    std::string clerkDescription;   // Description of Store's clerk
+    std::vector <std::string> clerkResponse;    // Clerk's possible reactions
+                                                // to player trying on an item
+    std::vector <std::string> pascalResponse;   // Pascal's possible reactions
+                                                // to player trying on an item
+    const std::string categories[4] =           // Categories of items
             {"Shoes", "Bottom", "Top", "Accessories"};
 public:
     Store(std::string name, std::string introText,
@@ -37,6 +44,5 @@ public:
     int mainMenu(int& time, int& wallet, Outfit*);
     void logLine(int time, int wallet) override;
 };
-
 
 #endif //INC_162_FINAL_PROJECT_STORE_HPP
