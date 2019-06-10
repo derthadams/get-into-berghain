@@ -83,6 +83,10 @@ NextMove Club::scene(int& time, int& wallet, Outfit* outfit)
             else
             {
                 std::cout << loseText << "\n\n";
+                std::cout << TOP_DIVIDER;
+                int choice = getMenuChoice(
+                        "     Enter 1 to exit\n"
+                        + BOT_DIVIDER, 1, 100);
                 return Exit;
             }
         }
