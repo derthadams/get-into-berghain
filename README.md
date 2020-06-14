@@ -31,7 +31,7 @@ then navigate inside the repository directory and compile the program with
 
     make -f Makefile
     
-After the compiler is finished...
+After the compiler has finished...
 
 **Linux**: run the executable with
 
