@@ -40,5 +40,5 @@ getString.o: getString.hpp
 .PHONY: clean
 
 clean:
-	-rm final_project $(objects)
+	-rm get-into-berghain $(objects)
 
