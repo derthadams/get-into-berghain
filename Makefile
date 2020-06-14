@@ -8,8 +8,8 @@ CXXFLAGS = -std=c++11
 objects = main.o dbl_to_string.o getDouble.o getInt.o getMenuChoice.o getString.o Club.o Game.o Item.o Outfit.o Space.o Store.o Street.o
 
 
-final_project: $(objects)
-	$(CXX) $(CXXFLAGS) -o final_project $(objects)
+get-into-berghain: $(objects)
+	$(CXX) $(CXXFLAGS) -o get-into-berghain $(objects)
 
 main.o: Game.hpp AsciiArt.hpp getMenuChoice.hpp
 
