@@ -26,7 +26,11 @@ install the program and clone the repository with the command
 
     git clone https://github.com/derthadams/get-into-berghain.git
 
-then navigate inside the repository directory and compile the program with
+then navigate inside the repository directory with
+
+    cd get-into-berghain
+    
+and compile the program with
 
     make -f Makefile
     
