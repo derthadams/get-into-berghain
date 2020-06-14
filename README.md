@@ -2,9 +2,9 @@
 
 *Text-based RPG written in C++*
 
-You're visiting Berlin, and your best friend Pascal is taking you to the most 
-exclusive techno nightclub in the world, Berghain. But when you get to the front of the line, the bouncer Sven rejects you, saying "I'm sorry,
-you're not getting in dressed like that".
+Your best friend Pascal is taking you to Berghain, the most exclusive techno 
+nightclub in Berlin. But when you get to the front of the line, the bouncer 
+Sven rejects you, saying "I'm sorry, you're not getting in dressed like that".
 
 You have only two hours to find a new outfit in the neighborhood shops, and 
 &euro;200 to spend.
@@ -23,7 +23,8 @@ Most importantly, can you...
 
 First, make sure you have git, make, and GCC installed.
 
-In the Linux CLI or Mac Terminal, navigate to the folder where you want to install the program and clone the repository with the command
+In the Linux CLI or Mac Terminal, navigate to the folder where you want to 
+install the program and clone the repository with the command
 
     git clone https://github.com/derthadams/get-into-berghain.git
 
