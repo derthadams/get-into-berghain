@@ -19,7 +19,7 @@ Can you trust your own?
 
 Most importantly, can you...
 
-![Get Into Berghain Intro](https://github.com/derthadams/get-into-berghain/images/berghain_intro.jpg)
+![Get Into Berghain Intro](https://github.com/derthadams/get-into-berghain/blob/master/images/berghain_intro.jpg)
 
 ## Installation for Linux/Mac
 
