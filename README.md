@@ -23,22 +23,22 @@ Most importantly, can you...
 
 First, make sure you have git, make, and GCC installed.
 
-In the Linux CLI or Mac Terminal, navigate to the folder where you want to install the application and clone the repository with the command
+In the Linux CLI or Mac Terminal, navigate to the folder where you want to install the program and clone the repository with the command
 
     git clone https://github.com/derthadams/get-into-berghain.git
 
-then navigate inside the repository directory and compile the application with
+then navigate inside the repository directory and compile the program with
 
     make -f Makefile
     
 After the compiler has finished...
 
-**Linux**: run the executable with
+**Linux**: run the program with
 
     get-into-berghain
     
-**Mac**: run the executable with
+**Mac**: run the program with
 
     ./get-into-berghain
 
-Once the application has launched, follow the instructions on screen.
+Once the program has launched, follow the instructions on screen.
