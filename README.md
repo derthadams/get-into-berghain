@@ -3,7 +3,7 @@
 *Text-based RPG written in C++*
 
 You're visiting Berlin, and your best friend Pascal is taking you to the most 
-exclusive techno nightclub in the world, Berghain. But when you get to the front of the line, the bouncer Sven says, "I'm sorry,
+exclusive techno nightclub in the world, Berghain. But when you get to the front of the line, the bouncer Sven rejects you, saying "I'm sorry,
 you're not getting in dressed like that".
 
 You have only two hours to find a new outfit in the neighborhood shops, and 
