@@ -1,7 +1,5 @@
 # Get Into Berghain
 
-*Text-based RPG written in C++*
-
 Your best friend Pascal is taking you to Berghain, the most exclusive techno 
 nightclub in Berlin. But when you get to the front of the line, the bouncer 
 Sven rejects you, saying "I'm sorry, you're not getting in dressed like that".
